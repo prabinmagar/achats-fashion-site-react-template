@@ -1,0 +1,56 @@
+import styled from "styled-components";
+import { Container } from "../../styles/styles";
+import { staticImages } from "../../utils/images";
+import { defaultTheme } from "../../styles/themes/default";
+import { BaseLinkGreen } from "../../styles/button";
+
+const ConfirmScreenWrapper = styled.main`
+  margin: 24px 0;
+
+  .confirm-img {
+    width: 240px;
+    overflow: hidden;
+  }
+
+  .confirm-msg {
+    border: 2px solid ${defaultTheme.color_outerspace};
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 400px;
+    gap: 12px;
+
+    &-text {
+      font-size: 24px;
+    }
+  }
+`;
+
+const ConfirmScreen = () => {
+  return (
+    <ConfirmScreenWrapper className="page-py-spacing">
+      <Container>
+        <div className="confirm-content flex items-center justify-center flex-col">
+          <div className="confirm-img">
+            <img
+              src={staticImages.confirmed_img}
+              alt=""
+              className="object-fit-cover"
+            />
+          </div>
+          <div className="confirm-msg flex flex-col justify-center items-center">
+            <p className="confirm-msg-text font-semibold text-outerspace">
+              Your Order is Confirmed
+            </p>
+            <BaseLinkGreen to="/">
+              Continue Shopping
+            </BaseLinkGreen>
+          </div>
+        </div>
+      </Container>
+    </ConfirmScreenWrapper>
+  );
+};
+
+export default ConfirmScreen;
