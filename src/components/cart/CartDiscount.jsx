@@ -64,7 +64,11 @@ const CartDiscount = () => {
           </BaseButtonOuterspace>
         </div>
       </form>
-      <BaseLinkOutlinePlatinum as={BaseLinkOutlinePlatinum} to="/" className="contd-shop-btn">
+      <BaseLinkOutlinePlatinum
+        as={BaseLinkOutlinePlatinum}
+        to="/"
+        className="contd-shop-btn"
+      >
         continue shopping
       </BaseLinkOutlinePlatinum>
     </CartDiscountWrapper>

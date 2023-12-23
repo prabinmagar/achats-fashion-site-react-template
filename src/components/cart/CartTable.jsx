@@ -50,17 +50,29 @@ const CartTableWrapper = styled.table`
 `;
 
 const CartTable = ({ cartItems }) => {
+  const CART_TABLE_HEADS = [
+    "Product details",
+    "Price",
+    "Quantity",
+    "Shipping",
+    "Subtotal",
+    "Action",
+  ];
   return (
     <div className="scrollbar-x">
       <CartTableWrapper>
         <thead>
           <tr>
-            <th className="text-base">product details</th>
-            <th className="text-base">price</th>
-            <th className="text-base">quantity</th>
-            <th className="text-base">shipping</th>
-            <th className="text-base">subtotal</th>
-            <th className="text-center text-base">action</th>
+            {CART_TABLE_HEADS?.map((column, index) => (
+              <th
+                className={`text-base${
+                  index === CART_TABLE_HEADS.length - 1 ? " text-center" : ""
+                }`}
+                key={index}
+              >
+                {column}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>

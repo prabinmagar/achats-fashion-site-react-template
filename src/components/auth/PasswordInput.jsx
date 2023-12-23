@@ -1,8 +1,20 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FormElement, Input } from "../../styles/form";
+import styled from "styled-components";
 
-const PasswordInput = ({ fieldName, name, errorMsg="" }) => {
+const PasswordToggleButton = styled.button`
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+
+  .pwd-toggle-text {
+    font-size: 13px;
+    padding-left: 5px;
+  }
+`;
+
+const PasswordInput = ({ fieldName, name, errorMsg = "" }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
@@ -21,7 +33,7 @@ const PasswordInput = ({ fieldName, name, errorMsg="" }) => {
           className="form-elem-control"
         />
 
-        <button
+        <PasswordToggleButton
           type="button"
           className="pwd-value-toggle flex items-center"
           onClick={togglePassword}
@@ -37,11 +49,9 @@ const PasswordInput = ({ fieldName, name, errorMsg="" }) => {
               <span className="pwd-toggle-text">Show</span>
             </>
           )}
-        </button>
+        </PasswordToggleButton>
       </div>
-      <span className="form-elem-error text-end font-medium">
-        {errorMsg}
-      </span>
+      <span className="form-elem-error text-end font-medium">{errorMsg}</span>
     </FormElement>
   );
 };
@@ -50,5 +60,5 @@ export default PasswordInput;
 PasswordInput.propTypes = {
   fieldName: PropTypes.string,
   name: PropTypes.string,
-  errorMsg: PropTypes.string
+  errorMsg: PropTypes.string,
 };

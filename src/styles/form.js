@@ -109,17 +109,6 @@ export const FormElement = styled.div`
       color: ${defaultTheme.color_sea_green};
     }
   }
-
-  .pwd-value-toggle {
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-  }
-
-  .pwd-toggle-text {
-    font-size: 13px;
-    padding-left: 5px;
-  }
 `;
 
 export const CheckboxGroup = styled.ul`
