@@ -22,11 +22,13 @@ import {
   Confirm,
 } from "./screens/index ";
 import { BaseLayout, AuthLayout } from "./components/index";
+import { GlobalStyles } from "./styles/global/GlobalStyles";
 
 function App() {
   return (
     <>
       <Router>
+        <GlobalStyles />
         <Routes>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<Home />} />
