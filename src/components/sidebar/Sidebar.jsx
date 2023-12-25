@@ -3,7 +3,7 @@ import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { SiteBrandWrapper } from "../../styles/header";
 import { staticImages } from "../../utils/images";
 import { Input, InputGroupWrapper } from "../../styles/form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectIsSidebarOpen,
@@ -58,7 +58,7 @@ const SideNavigationWrapper = styled.div`
 
     a {
       column-gap: 16px;
-      color: ${defaultTheme.color_outerspace};
+      color: ${defaultTheme.color_gray};
       .menu-item-icon {
         font-size: 18px;
       }
@@ -70,10 +70,14 @@ const SideNavigationWrapper = styled.div`
       &:hover {
         color: ${defaultTheme.color_sea_green};
       }
+
+      &.active {
+        color: ${defaultTheme.color_sea_green};
+      }
     }
   }
 
-  @media(max-width: ${breakpointsDown.xs}){
+  @media (max-width: ${breakpointsDown.xs}) {
     width: 100%;
   }
 `;
@@ -81,9 +85,10 @@ const SideNavigationWrapper = styled.div`
 const Sidebar = () => {
   const isSidebarOpen = useSelector(selectIsSidebarOpen);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   return (
-    <SideNavigationWrapper className={`${isSidebarOpen && "show"}`}>
+    <SideNavigationWrapper className={`${isSidebarOpen ? "show" : ""}`}>
       <button
         className="sidebar-close-btn"
         onClick={() => dispatch(toggleSidebar())}
@@ -116,7 +121,12 @@ const Sidebar = () => {
       </form>
       <ul className="sidenav-menu-list">
         <li>
-          <Link to="/" className="flex items-center">
+          <Link
+            to="/"
+            className={`flex items-center ${
+              location.pathname === "/" ? "active" : ""
+            }`}
+          >
             <span className="menu-item-icon">
               <i className="bi bi-house"></i>
             </span>
@@ -124,7 +134,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/product" className="flex items-center">
+          <Link
+            to="/product"
+            className={`flex items-center ${
+              location.pathname === "/product" ? "active" : ""
+            }`}
+          >
             <span className="menu-item-icon">
               <i className="bi bi-grid-fill"></i>
             </span>
@@ -132,7 +147,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/wishlist" className="flex items-center">
+          <Link
+            to="/wishlist"
+            className={`flex items-center ${
+              location.pathname === "/wishlist" ? "active" : ""
+            }`}
+          >
             <span className="menu-item-icon">
               <i className="bi bi-bag-heart"></i>
             </span>
@@ -140,7 +160,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/account" className="flex items-center">
+          <Link
+            to="/account"
+            className={`flex items-center ${
+              location.pathname === "/account" ? "active" : ""
+            }`}
+          >
             <span className="menu-item-icon">
               <i className="bi bi-person-fill"></i>
             </span>
@@ -148,7 +173,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/cart" className="flex items-center">
+          <Link
+            to="/cart"
+            className={`flex items-center ${
+              location.pathname === "/cart" ? "active" : ""
+            }`}
+          >
             <span className="menu-item-icon">
               <i className="bi bi-bag-check-fill"></i>
             </span>

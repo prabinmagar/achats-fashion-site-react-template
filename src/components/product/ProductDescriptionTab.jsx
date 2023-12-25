@@ -144,7 +144,7 @@ const ProductDescriptionTab = () => {
                 >
                   <span
                     className={`${
-                      tab.tabHead === activeDesTab && "text-sea-green"
+                      tab.tabHead === activeDesTab ? "text-sea-green" : ""
                     } `}
                   >
                     {tab.tabText}
@@ -161,7 +161,7 @@ const ProductDescriptionTab = () => {
           <div className="tabs-contents">
             <div
               className={`tabs-content ${
-                activeDesTab === "tabDescription" && "show"
+                activeDesTab === "tabDescription" ? "show" : ""
               }`}
             >
               <ContentStylings>
@@ -204,7 +204,7 @@ const ProductDescriptionTab = () => {
 
             <div
               className={`tabs-content content-stylings ${
-                activeDesTab === "tabComments" && "show"
+                activeDesTab === "tabComments" ? "show" : ""
               }`}
             >
               User comments here.
@@ -212,7 +212,7 @@ const ProductDescriptionTab = () => {
 
             <div
               className={`tabs-content content-stylings ${
-                activeDesTab === "tabQNA" && "show"
+                activeDesTab === "tabQNA" ? "show" : ""
               }`}
             >
               Question & Answers

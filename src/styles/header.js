@@ -35,14 +35,9 @@ export const HeaderMainWrapper = styled.header`
   }
 
   .sidebar-toggler{
-    font-size: 24px;
+    font-size: 26px;
     margin-right: 10px;
     margin-bottom: -1px;
-    display: none;
-
-    @media(max-width: ${breakpointsDown.lg}){
-      display: block;
-    }
   }
 `;
 
@@ -78,7 +73,7 @@ export const NavigationAndSearchWrapper = styled.div`
     }
 
     @media (max-width: ${breakpointsDown.sm}) {
-      width: auto;
+      display: none;
     }
   }
 

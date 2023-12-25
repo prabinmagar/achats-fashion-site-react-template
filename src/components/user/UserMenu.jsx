@@ -79,7 +79,10 @@ const UserMenu = () => {
             <Link
               to="/order"
               className={`nav-menu-link ${
-                (location.pathname === "/order" || location.pathname === "/order_detail") && "active"
+                location.pathname === "/order" ||
+                location.pathname === "/order_detail"
+                  ? "active"
+                  : ""
               } flex items-center`}
             >
               <span className="nav-link-icon flex items-center justify-center">
@@ -94,7 +97,10 @@ const UserMenu = () => {
             <Link
               to="/wishlist"
               className={`nav-menu-link ${
-                (location.pathname === "/wishlist" || location.pathname === "/empty_wishlist") && "active"
+                location.pathname === "/wishlist" ||
+                location.pathname === "/empty_wishlist"
+                  ? "active"
+                  : ""
               } flex items-center`}
             >
               <span className="nav-link-icon flex items-center justify-center">
@@ -109,7 +115,10 @@ const UserMenu = () => {
             <Link
               to="/account"
               className={`nav-menu-link ${
-                (location.pathname === "/account" || location.pathname === "/account/add") && "active"
+                location.pathname === "/account" ||
+                location.pathname === "/account/add"
+                  ? "active"
+                  : ""
               } flex items-center`}
             >
               <span className="nav-link-icon flex items-center justify-center">

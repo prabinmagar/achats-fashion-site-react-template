@@ -11,9 +11,7 @@ import { Container } from "../../styles/styles";
 import { Input, InputGroupWrapper } from "../../styles/form";
 import { navMenuData } from "../../data/data";
 import { useDispatch } from "react-redux";
-import {
-  toggleSidebar,
-} from "../../redux/slices/sidebarSlice";
+import { toggleSidebar } from "../../redux/slices/sidebarSlice";
 
 const Header = () => {
   const location = useLocation();
@@ -77,7 +75,7 @@ const Header = () => {
             <Link
               to="/wishlist"
               className={`icon-link ${
-                location.pathname === "/wishlist" && "active"
+                location.pathname === "/wishlist" ? "active" : ""
               } inline-flex items-center justify-center`}
             >
               <img src={staticImages.heart} />
@@ -85,9 +83,10 @@ const Header = () => {
             <Link
               to="/account"
               className={`icon-link ${
-                (location.pathname === "/account" ||
-                  location.pathname === "/account/add") &&
-                "active"
+                location.pathname === "/account" ||
+                location.pathname === "/account/add"
+                  ? "active"
+                  : ""
               } inline-flex items-center justify-center`}
             >
               <img src={staticImages.user} />
@@ -95,7 +94,7 @@ const Header = () => {
             <Link
               to="/cart"
               className={`icon-link ${
-                location.pathname === "/cart" && "active"
+                location.pathname === "/cart" ? "active" : ""
               } inline-flex items-center justify-center`}
             >
               <img src={staticImages.cart} />
