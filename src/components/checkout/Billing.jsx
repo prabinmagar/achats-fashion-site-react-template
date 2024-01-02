@@ -1,28 +1,25 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Input } from "../../styles/form";
-import { orderData } from "../../data/data";
-import { currencyFormat } from "../../utils/helper";
 import { BaseButtonGreen } from "../../styles/button";
+import CheckoutSummary from "./CheckoutSummary";
 
 const BillingOrderWrapper = styled.div`
   gap: 60px;
-  display: grid;
   grid-template-columns: 2fr 1fr;
-  align-items: flex-start;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     gap: 40px;
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     gap: 30px;
     grid-template-columns: 100%;
   }
 `;
 
 const BillingDetailsWrapper = styled.div`
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     order: 2;
   }
 
@@ -32,7 +29,7 @@ const BillingDetailsWrapper = styled.div`
     .input-elem {
       margin-bottom: 16px;
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         margin-bottom: 10px;
       }
 
@@ -40,7 +37,7 @@ const BillingDetailsWrapper = styled.div`
         margin-bottom: 8px;
         display: block;
       }
-      
+
       input,
       select {
         height: 40px;
@@ -63,11 +60,11 @@ const BillingDetailsWrapper = styled.div`
       grid-template-columns: repeat(2, 1fr);
       column-gap: 24px;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         column-gap: 12px;
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         grid-template-columns: 100%;
       }
     }
@@ -77,11 +74,11 @@ const BillingDetailsWrapper = styled.div`
       grid-template-columns: repeat(3, 1fr);
       column-gap: 24px;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         column-gap: 12px;
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         grid-template-columns: 100%;
       }
     }
@@ -94,90 +91,16 @@ const BillingDetailsWrapper = styled.div`
     .contd-delivery-btn {
       margin-top: 20px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         width: 100%;
       }
     }
   }
 `;
 
-const OrderSummaryWrapper = styled.div`
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05),
-    -2px -2px 4px 0px rgba(0, 0, 0, 0.05);
-  padding: 40px;
-
-  @media (max-width: ${breakpointsDown.xl}) {
-    padding: 24px;
-  }
-
-  @media (max-width: ${breakpointsDown.sm}) {
-    padding: 16px;
-  }
-
-  @media (max-width: ${breakpointsDown.xs}) {
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .order-list {
-    margin-top: 20px;
-    display: grid;
-    row-gap: 24px;
-
-    @media (max-width: ${breakpointsDown.sm}) {
-      row-gap: 16px;
-    }
-  }
-
-  .order-item {
-    display: grid;
-    grid-template-columns: 60px auto;
-    gap: 16px;
-
-    @media (max-width: ${breakpointsDown.xs}) {
-      align-items: center;
-    }
-
-    &-img {
-      width: 60px;
-      height: 60px;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-
-    &-info {
-      gap: 16px;
-
-      @media (max-width: ${breakpointsDown.xs}) {
-        flex-direction: column;
-        gap: 6px;
-      }
-    }
-  }
-
-  .order-info {
-    margin-top: 30px;
-
-    @media (max-width: ${breakpointsDown.sm}) {
-      margin-top: 20px;
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    .list-separator {
-      height: 1px;
-      background-color: ${defaultTheme.color_anti_flash_white};
-      margin: 12px 0;
-    }
-  }
-`;
-
 const Billing = () => {
   return (
-    <BillingOrderWrapper className="billing-and-order">
+    <BillingOrderWrapper className="billing-and-order grid items-start">
       <BillingDetailsWrapper>
         <h4 className="text-xxl font-bold text-outerspace">Billing Details</h4>
         <form action="" className="checkout-form">
@@ -301,64 +224,7 @@ const Billing = () => {
           </div>
         </form>
       </BillingDetailsWrapper>
-      <OrderSummaryWrapper>
-        <h4 className="text-xxl font-bold text-outerspace">Order Summary</h4>
-        <div className="order-list">
-          {orderData?.map((order) => {
-            return (
-              <div className="order-item" key={order.id}>
-                <div className="order-item-img">
-                  <img
-                    src={order.imgSource}
-                    className="object-fit-cover"
-                    alt=""
-                  />
-                </div>
-                <div className="order-item-info flex justify-between">
-                  <div className="order-item-info-l">
-                    <p className="text-base font-bold text-outerspace">
-                      {order.name}{" "}
-                      <span className="text-gray">x {order.quantity}</span>
-                    </p>
-                    <p className="text-base font-bold text-outerspace">
-                      Color:{" "}
-                      <span className="text-gray font-normal">
-                        {order.color}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="order-item-info-r text-gray font-bold text-base">
-                    {currencyFormat(order.price)}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <ul className="order-info">
-          <li className="flex items-center justify-between">
-            <span className="text-outerspace font-bold text-lg">
-              Subtotal{" "}
-              <span className="text-gray font-semibold">(3 items)</span>
-            </span>
-            <span className="text-outerspace font-bold text-lg">$513.00</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <span className="text-outerspace font-bold text-lg">Savings</span>
-            <span className="text-outerspace font-bold text-lg">-$30.00</span>
-          </li>
-          <li className="flex items-center justify-between">
-            <span className="text-outerspace font-bold text-lg">Shipping</span>
-            <span className="text-outerspace font-bold text-lg">-$5.00</span>
-          </li>
-          <li className="list-separator"></li>
-          <li className="flex items-center justify-between">
-            <span className="text-outerspace font-bold text-lg">Total</span>
-            <span className="text-outerspace font-bold text-lg">$478.00</span>
-          </li>
-        </ul>
-      </OrderSummaryWrapper>
+      <CheckoutSummary />
     </BillingOrderWrapper>
   );
 };

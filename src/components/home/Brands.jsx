@@ -1,28 +1,24 @@
 import styled from "styled-components";
 import { brandsData } from "../../data/data";
-import { Container, Section, SectionTitle } from "../../styles/styles";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { Container, Section, TitleWrapper } from "../../styles/styles";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
-const StyledSectionTitle = styled(SectionTitle)`
-  justify-content: center;
-  flex-direction: column;
+const StyledSectionTitle = styled(TitleWrapper)`
   padding-left: 0;
-
   &::after {
     display: none;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-bottom: 20px;
   }
 `;
 
 const BrandsContent = styled.div`
   border-radius: 12px;
-  background: ${defaultTheme.color_outerspace};
   padding: 40px 0;
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding: 24px 0;
   }
 `;
@@ -31,7 +27,7 @@ const BrandsListWrapper = styled.div`
   padding: 12px;
   margin-top: 40px;
   gap: 24px;
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     gap: 12px;
     margin-top: 20px;
   }
@@ -48,12 +44,12 @@ const BrandsItemWrapper = styled.div`
     width: auto;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     width: 120px;
     border-radius: 8px;
   }
 
-  @media (max-width: ${breakpointsDown.xs}) {
+  @media (max-width: ${breakpoints.xs}) {
     width: 80px;
     height: 50px;
     border-radius: 4px;
@@ -64,8 +60,8 @@ const Brands = () => {
   return (
     <Section>
       <Container>
-        <BrandsContent>
-          <StyledSectionTitle className="text-white text-center">
+        <BrandsContent className="bg-outerspace">
+          <StyledSectionTitle className="text-white text-center justify-center flex-col">
             <h3>Top Brands Deal</h3>
             <p className="text-xxl text-white">
               Up To <span className="text-yellow">60%</span> off on brands.

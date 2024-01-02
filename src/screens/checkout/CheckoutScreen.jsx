@@ -1,7 +1,7 @@
-import { Container, SectionTitle } from "../../styles/styles";
-import { ShippingPayment, Billing } from "../../components";
+import { Container } from "../../styles/styles";
+import { ShippingPayment, Billing, Title } from "../../components";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const CheckoutScreenWrapper = styled.main`
   padding: 48px 0;
@@ -10,10 +10,9 @@ const CheckoutScreenWrapper = styled.main`
     height: 1px;
     background-color: ${defaultTheme.color_anti_flash_white};
     max-width: 818px;
-    width: 100%;
     margin: 30px 0;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       margin: 20px 0;
     }
   }
@@ -23,11 +22,9 @@ const CheckoutScreen = () => {
   return (
     <CheckoutScreenWrapper>
       <Container>
-        <SectionTitle >
-          <h3>Check Out</h3>
-        </SectionTitle>
+        <Title titleText={"Check Out"} />
         <Billing />
-        <div className="horiz-line-separator"></div>
+        <div className="horiz-line-separator w-full"></div>
         <ShippingPayment />
       </Container>
     </CheckoutScreenWrapper>

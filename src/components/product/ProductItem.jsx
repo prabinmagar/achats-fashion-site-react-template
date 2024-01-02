@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { commonCardStyles } from "../../styles/card";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
+import { Link } from "react-router-dom";
 
-const ProductCardWrapper = styled.div`
+const ProductCardWrapper = styled(Link)`
   ${commonCardStyles}
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding-left: 0px;
     padding-right: 0px;
   }
@@ -14,20 +15,8 @@ const ProductCardWrapper = styled.div`
     height: 393px;
     position: relative;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       height: 320px;
-    }
-  }
-
-  .product-link {
-    color: #7f7f7f;
-
-    .link-icon {
-      font-size: 16px;
-    }
-
-    &:hover {
-      color: ${defaultTheme.color_sea_green};
     }
   }
 
@@ -37,7 +26,6 @@ const ProductCardWrapper = styled.div`
     right: 16px;
     width: 32px;
     height: 32px;
-    background-color: ${defaultTheme.color_white};
     border-radius: 100%;
 
     &:hover {
@@ -45,34 +33,25 @@ const ProductCardWrapper = styled.div`
       color: ${defaultTheme.color_white};
     }
   }
-
-  .product-brand {
-    color: ${defaultTheme.color_gray};
-  }
-
-  .product-price {
-    color: ${defaultTheme.color_outerspace};
-    font-weight: 700;
-  }
 `;
 
 const ProductItem = ({ product }) => {
   return (
-    <ProductCardWrapper key={product.id}>
+    <ProductCardWrapper key={product.id} to="/product/details">
       <div className="product-img">
         <img className="object-fit-cover" src={product.imgSource} />
         <button
           type="button"
-          className="product-wishlist-icon flex items-center justify-center"
+          className="product-wishlist-icon flex items-center justify-center bg-white"
         >
           <i className="bi bi-heart"></i>
         </button>
       </div>
       <div className="product-info">
-        <p className="info-name font-bold">{product.title}</p>
+        <p className="font-bold">{product.title}</p>
         <div className="flex items-center justify-between text-sm font-medium">
-          <span className="product-brand">{product.brand}</span>
-          <span className="product-price">${product.price}</span>
+          <span className="text-gray">{product.brand}</span>
+          <span className="text-outerspace font-bold">${product.price}</span>
         </div>
       </div>
     </ProductCardWrapper>

@@ -7,18 +7,18 @@ import { navMenuData } from "../../data/data";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../../redux/slices/sidebarSlice";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const NavigationAndSearchWrapper = styled.div`
   column-gap: 20px;
 
   .search-form {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       width: 100%;
       max-width: 500px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       display: none;
     }
   }
@@ -27,22 +27,22 @@ const NavigationAndSearchWrapper = styled.div`
     min-width: 320px;
 
     .input-control {
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         display: none;
       }
     }
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       min-width: 160px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       min-width: auto;
       grid-template-columns: 100%;
     }
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     width: 100%;
     justify-content: flex-end;
   }
@@ -52,7 +52,7 @@ const NavigationMenuWrapper = styled.nav`
   .nav-menu-list {
     margin-left: 20px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       flex-direction: column;
     }
   }
@@ -60,7 +60,7 @@ const NavigationMenuWrapper = styled.nav`
     margin-right: 20px;
     margin-left: 20px;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       margin-left: 16px;
       margin-right: 16px;
     }
@@ -76,7 +76,7 @@ const NavigationMenuWrapper = styled.nav`
     }
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     position: absolute;
     top: 0;
     right: 0;
@@ -108,11 +108,11 @@ const IconLinksWrapper = styled.div`
     }
   }
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     column-gap: 8px;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     column-gap: 6px;
   }
 `;

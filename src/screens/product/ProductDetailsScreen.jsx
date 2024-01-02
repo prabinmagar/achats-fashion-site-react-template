@@ -8,7 +8,7 @@ import {
 import { product_one } from "../../data/data";
 import styled from "styled-components";
 import { Container } from "../../styles/styles";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { BaseLinkGreen } from "../../styles/button";
 import { currencyFormat } from "../../utils/helper";
 import { Link } from "react-router-dom";
@@ -21,12 +21,12 @@ const DetailsContent = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     gap: 24px;
     grid-template-columns: 3fr 2fr;
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     grid-template-columns: 100%;
   }
 `;
@@ -35,11 +35,11 @@ const ProductDetailsWrapper = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 24px;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding: 16px;
   }
 
-  @media (max-width: ${breakpointsDown.xs}) {
+  @media (max-width: ${breakpoints.xs}) {
     padding: 12px;
   }
 
@@ -70,8 +70,9 @@ const ProductDetailsWrapper = styled.div`
   .btn-and-price {
     margin-top: 36px;
     column-gap: 16px;
+    row-gap: 10px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       margin-top: 24px;
     }
   }
@@ -85,6 +86,9 @@ const ProductSizeWrapper = styled.div`
   .prod-size-list {
     gap: 12px;
     margin-top: 16px;
+    @media(max-width: ${breakpoints.sm}){
+      gap: 8px;
+    }
   }
 
   .prod-size-item {
@@ -92,6 +96,11 @@ const ProductSizeWrapper = styled.div`
     height: 38px;
     width: 38px;
     cursor: pointer;
+
+    @media(max-width: ${breakpoints.sm}){
+      width: 32px;
+      height: 32px;
+    }
 
     input {
       position: absolute;
@@ -101,6 +110,11 @@ const ProductSizeWrapper = styled.div`
       height: 38px;
       opacity: 0;
       cursor: pointer;
+
+      @media(max-width: ${breakpoints.sm}){
+        width: 32px;
+        height: 32px;
+      }
 
       &:checked + span {
         color: ${defaultTheme.color_white};
@@ -115,6 +129,11 @@ const ProductSizeWrapper = styled.div`
       border-radius: 8px;
       border: 1.5px solid ${defaultTheme.color_silver};
       text-transform: uppercase;
+
+      @media(max-width: ${breakpoints.sm}){
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 `;
@@ -122,7 +141,7 @@ const ProductSizeWrapper = styled.div`
 const ProductColorWrapper = styled.div`
   margin-top: 32px;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-top: 24px;
   }
 
@@ -196,7 +215,7 @@ const ProductDetailsScreen = () => {
           <ProductPreview previewImages={product_one.previewImages} />
           <ProductDetailsWrapper>
             <h2 className="prod-title">{product_one.title}</h2>
-            <div className="flex items-center rating-and-comments">
+            <div className="flex items-center rating-and-comments flex-wrap">
               <div className="prod-rating flex items-center">
                 {stars}
                 <span className="text-gray text-xs">{product_one.rating}</span>

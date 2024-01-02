@@ -15,15 +15,10 @@ const ConfirmScreenWrapper = styled.main`
   .confirm-msg {
     border: 2px solid ${defaultTheme.color_outerspace};
     border-radius: 6px;
-    padding: 24px;
+    padding: 24px 0;
     margin-top: 16px;
-    width: 100%;
     max-width: 400px;
     gap: 12px;
-
-    &-text {
-      font-size: 24px;
-    }
   }
 `;
 
@@ -39,8 +34,8 @@ const ConfirmScreen = () => {
               className="object-fit-cover"
             />
           </div>
-          <div className="confirm-msg flex flex-col justify-center items-center">
-            <p className="confirm-msg-text font-semibold text-outerspace">
+          <div className="confirm-msg w-full flex flex-col justify-center items-center">
+            <p className="text-4xl font-semibold text-outerspace">
               Your Order is Confirmed
             </p>
             <BaseLinkGreen to="/">

@@ -22,7 +22,7 @@ const defaultTheme = {
   font_family_inter: "'Inter', sans-serif",
 };
 
-const breakpointsUp = {
+const breakpoints = {
   xs: "480px",
   sm: "576px",
   md: "768px",
@@ -31,13 +31,4 @@ const breakpointsUp = {
   xxl: "1400px",
 };
 
-const breakpointsDown = {
-  xs: "479.98px",
-  sm: "575.98px",
-  md: "767.98px",
-  lg: "991.98px",
-  xl: "1199.98px",
-  xxl: "1399.98px",
-};
-
-export { defaultTheme, breakpointsUp, breakpointsDown };
+export { defaultTheme, breakpoints };

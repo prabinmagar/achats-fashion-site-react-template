@@ -3,28 +3,26 @@ import { footerData, socialLinksData } from "../../data/data";
 import { staticImages } from "../../utils/images";
 import styled from "styled-components";
 import { Container } from "../../styles/styles";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const FooterWrapper = styled.footer`
-  background-color: ${defaultTheme.color_outerspace};
   padding-top: 60px;
   padding-bottom: 32px;
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding-top: 30px;
     padding-bottom: 30px;
   }
 
   .footer-top {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       grid-template-columns: 100%;
       text-align: center;
     }
@@ -51,15 +49,14 @@ const FooterWrapper = styled.footer`
 
   .footer-middle {
     padding: 20px 0 32px 0;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       padding: 20px 0;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       grid-template-columns: 100%;
       text-align: center;
     }
@@ -68,7 +65,7 @@ const FooterWrapper = styled.footer`
   .ftr-social-links {
     column-gap: 8px;
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       justify-content: center;
     }
 
@@ -86,12 +83,12 @@ const FooterWrapper = styled.footer`
     .app-links-group {
       column-gap: 6px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         flex-direction: row;
         justify-content: center;
       }
@@ -100,7 +97,7 @@ const FooterWrapper = styled.footer`
       img {
         width: 120px;
 
-        @media (max-width: ${breakpointsDown.md}) {
+        @media (max-width: ${breakpoints.md}) {
           width: 100px;
         }
       }
@@ -111,7 +108,7 @@ const FooterWrapper = styled.footer`
     padding-top: 36px;
     border-top: 1px solid rgba(190, 188, 189, 0.4);
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       padding-top: 20px;
     }
   }
@@ -119,9 +116,9 @@ const FooterWrapper = styled.footer`
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <FooterWrapper className="bg-outerspace">
       <Container className="container">
-        <div className="footer-top">
+        <div className="footer-top grid">
           {footerData.map((footer) => {
             return (
               <div className="footer-item" key={footer.id}>
@@ -155,7 +152,7 @@ const Footer = () => {
             );
           })}
         </div>
-        <div className="footer-middle">
+        <div className="footer-middle grid">
           <div className="ftr-social-links flex items-center">
             {socialLinksData?.map((socialLink) => {
               return (

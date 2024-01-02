@@ -3,23 +3,23 @@ import CustomNextArrow from "../common/CustomNextArrow";
 import CustomPrevArrow from "../common/CustomPrevArrow";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Container, Section, SectionTitle } from "../../styles/styles";
+import { Container, Section } from "../../styles/styles";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { feedbackData } from "../../data/data";
+import Title from "../common/Title";
 
 const FeedbackItemWrapper = styled.div`
   padding-left: 16px;
   padding-right: 16px;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding: 0;
   }
 
   .feedback-item-wrap {
     border-radius: 10px;
     border: 1px solid ${defaultTheme.color_platinum};
-    background: ${defaultTheme.color_white};
     padding: 20px;
     height: 320px;
     transition: ${defaultTheme.default_transition};
@@ -61,11 +61,6 @@ const FeedbackItemWrapper = styled.div`
   .rating {
     margin: 14px 0;
     column-gap: 4px;
-    color: ${defaultTheme.color_yellow};
-  }
-
-  .feedback-body {
-    color: ${defaultTheme.color_gray};
   }
 `;
 
@@ -98,9 +93,7 @@ const Feedback = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle>
-          <h3>Feedback</h3>
-        </SectionTitle>
+        <Title titleText={"Feedback"} />
         <Slider
           nextArrow={<CustomNextArrow />}
           prevArrow={<CustomPrevArrow />}
@@ -109,7 +102,7 @@ const Feedback = () => {
           {feedbackData?.map((feedback) => {
             return (
               <FeedbackItemWrapper key={feedback.id}>
-                <div className="feedback-item-wrap">
+                <div className="feedback-item-wrap bg-white">
                   <div className="feedback-top flex items-center">
                     <div className="feedback-icon">
                       <img
@@ -123,7 +116,7 @@ const Feedback = () => {
                       <span className="text-sm">{feedback.designation}</span>
                     </div>
                   </div>
-                  <ul className="rating flex items-center">
+                  <ul className="rating text-yellow flex items-center">
                     {[...Array(feedback.rating).keys()].map((index) => (
                       <li key={index}>
                         <i className="bi bi-star-fill"></i>
@@ -135,7 +128,7 @@ const Feedback = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="feedback-body">
+                  <div className="feedback-body text-gray">
                     <p className="text-base">{feedback.feedbackText}</p>
                   </div>
                 </div>

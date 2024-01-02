@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const PageWrapper = styled.div`
   overflow: hidden !important;
@@ -7,19 +7,19 @@ export const PageWrapper = styled.div`
 
 export const Container = styled.div`
   max-width: 1320px;
-  padding: 0 16px;
+  padding: 0 16px !important;
   margin: 0 auto;
   width: 100%;
 `;
 
 export const Section = styled.section`
   padding: 40px 0;
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding: 32px 0;
   }
 `;
 
-export const SectionTitle = styled.div`
+export const TitleWrapper = styled.div`
   margin-bottom: 24px;
   position: relative;
   padding-left: 32px;
@@ -32,11 +32,11 @@ export const SectionTitle = styled.div`
     margin-bottom: 0 !important;
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding-left: 24px;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding-left: 20px;
   }
 
@@ -44,11 +44,11 @@ export const SectionTitle = styled.div`
     font-size: 28px;
     margin-bottom: 4px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 24px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 20px;
     }
   }
@@ -66,12 +66,6 @@ export const SectionTitle = styled.div`
     height: 30px;
     background-color: ${defaultTheme.color_sea_green};
     border-radius: 100vh;
-  }
-
-  &-sm {
-    h3 {
-      font-size: 20px;
-    }
   }
 `;
 
@@ -97,42 +91,42 @@ export const ContentStylings = styled.div`
   p,
   ul,
   a {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 13px !important;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 12px !important;
     }
   }
 
   h1,
   h2 {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 17px !important;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 16px !important;
     }
   }
 
   h3,
   h4 {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 16px !important;
     }
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 15px !important;
     }
   }
 
   h4,
   h6 {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 15px !important;
     }
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 14px !important;
     }
   }

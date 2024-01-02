@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import { SectionTitle } from "../../styles/styles";
+import { TitleWrapper } from "../../styles/styles";
 
 const Title = ({ titleText }) => {
   return (
-    <SectionTitle className="section-title horiz-line">
+    <TitleWrapper className="title">
       <h3>{titleText}</h3>
-    </SectionTitle>
+    </TitleWrapper>
   );
 };
 

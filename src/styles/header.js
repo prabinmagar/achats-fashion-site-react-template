@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown } from "./themes/default";
+import { breakpoints } from "./themes/default";
 import { Link } from "react-router-dom";
 
 // common header stylings
@@ -10,7 +10,7 @@ export const HeaderMainWrapper = styled.header`
   .header-wrap {
     column-gap: 20px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       column-gap: 8px;
     }
   }
@@ -36,10 +36,10 @@ export const SiteBrandWrapper = styled(Link)`
   .site-brand-text {
     font-size: 24px;
     font-weight: 600;
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       font-size: 20px;
     }
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       display: none;
     }
   }

@@ -9,7 +9,6 @@ const PasswordToggleButton = styled.button`
   right: 0;
 
   .pwd-toggle-text {
-    font-size: 13px;
     padding-left: 5px;
   }
 `;
@@ -41,12 +40,12 @@ const PasswordInput = ({ fieldName, name, errorMsg = "" }) => {
           {showPassword ? (
             <>
               <i className="bi bi-eye-fill"></i>
-              <span className="pwd-toggle-text">Hide</span>
+              <span className="pwd-toggle-text text-sm">Hide</span>
             </>
           ) : (
             <>
               <i className="bi bi-eye-slash-fill"></i>
-              <span className="pwd-toggle-text">Show</span>
+              <span className="pwd-toggle-text text-sm">Show</span>
             </>
           )}
         </PasswordToggleButton>

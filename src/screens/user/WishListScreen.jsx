@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Container, SectionTitle } from "../../styles/styles";
+import { Container } from "../../styles/styles";
 import { UserContent, UserDashboardWrapper } from "../../styles/user";
-import { UserMenu, Breadcrumb } from "../../components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { UserMenu, Breadcrumb, Title } from "../../components";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { wishlistData } from "../../data/data";
 import { currencyFormat } from "../../utils/helper";
 import { BaseLinkBlack } from "../../styles/button";
@@ -18,15 +18,15 @@ const WishItemWrapper = styled.div`
   max-width: 900px;
   position: relative;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     column-gap: 20px;
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     column-gap: 16px;
   }
 
-  @media (max-width: ${breakpointsDown.xs}) {
+  @media (max-width: ${breakpoints.xs}) {
     flex-direction: column;
     gap: 12px;
   }
@@ -34,11 +34,11 @@ const WishItemWrapper = styled.div`
   .wish-item-img {
     column-gap: 30px;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       column-gap: 20px;
     }
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       column-gap: 16px;
     }
 
@@ -48,7 +48,7 @@ const WishItemWrapper = styled.div`
       border-radius: 4px;
       overflow: hidden;
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         min-width: 100%;
         height: 180px;
 
@@ -74,13 +74,13 @@ const WishItemWrapper = styled.div`
         border-color: ${defaultTheme.color_gray};
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         position: absolute;
         right: -10px;
         top: -10px;
       }
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         right: 6px;
         top: 6px;
         background-color: ${defaultTheme.color_jet};
@@ -92,7 +92,7 @@ const WishItemWrapper = styled.div`
   .wish-item-info {
     flex: 1;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-direction: column;
       row-gap: 8px;
     }
@@ -115,29 +115,29 @@ const WishItemWrapper = styled.div`
     &-r {
       column-gap: 40px;
 
-      @media (max-width: ${breakpointsDown.xl}) {
+      @media (max-width: ${breakpoints.xl}) {
         column-gap: 20px;
       }
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         flex-direction: column;
         align-items: flex-end;
         row-gap: 8px;
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         flex-direction: row;
         align-items: center;
       }
 
       .wish-item-price {
-        @media (max-width: ${breakpointsDown.sm}) {
+        @media (max-width: ${breakpoints.sm}) {
           order: 2;
         }
       }
 
       .wish-cart-btn {
-        @media (max-width: ${breakpointsDown.sm}) {
+        @media (max-width: ${breakpoints.sm}) {
           order: 1;
         }
       }
@@ -146,8 +146,8 @@ const WishItemWrapper = styled.div`
 `;
 
 const breadcrumbItems = [
-  { label: "Home", link: "/"},
-  { label: "Wishlist", link: "/wishlist"}
+  { label: "Home", link: "/" },
+  { label: "Wishlist", link: "/wishlist" },
 ];
 
 const WishListScreen = () => {
@@ -156,73 +156,9 @@ const WishListScreen = () => {
       <Container>
         <Breadcrumb items={breadcrumbItems} />
         <UserDashboardWrapper>
-          <UserMenu>
-            <div className="section-title horiz-line">
-              <h3>Hello Janvi</h3>
-            </div>
-            <p className="text-base font-light italic">
-              Welcome to your account.
-            </p>
-
-            <nav className="nav-account">
-              <ul className="nav-account-list">
-                <li className="nav-account-item">
-                  <a
-                    href="order.html"
-                    className="nav-account-link flex items-center"
-                  >
-                    <span className="ac-link-icon flex items-center justify-center">
-                      <img src="./assets/icons/ac_orders.svg" alt="" />
-                    </span>
-                    <span className="text-base font-semibold ac-link-text no-wrap">
-                      My orders
-                    </span>
-                  </a>
-                </li>
-                <li className="nav-account-item">
-                  <a
-                    href="wishlist.html"
-                    className="nav-account-link active flex items-center"
-                  >
-                    <span className="ac-link-icon flex items-center justify-center">
-                      <img src="./assets/icons/ac_heart.svg" alt="" />
-                    </span>
-                    <span className="text-base font-semibold ac-link-text no-wrap">
-                      Wishlist
-                    </span>
-                  </a>
-                </li>
-                <li className="nav-account-item">
-                  <a
-                    href="info.html"
-                    className="nav-account-link  flex items-center"
-                  >
-                    <span className="ac-link-icon flex items-center justify-center">
-                      <img src="./assets/icons/ac_user.svg" alt="" />
-                    </span>
-                    <span className="text-base font-semibold ac-link-text no-wrap">
-                      My info
-                    </span>
-                  </a>
-                </li>
-                <li className="nav-account-item">
-                  <a href="" className="nav-account-link flex items-center">
-                    <span className="ac-link-icon flex items-center justify-center">
-                      <img src="./assets/icons/ac_sign_out.svg" alt="" />
-                    </span>
-                    <span className="text-base font-semibold ac-link-text no-wrap">
-                      Sign out
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </UserMenu>
+          <UserMenu />
           <UserContent>
-            <SectionTitle className="section-title">
-              <h3>Wishlist</h3>
-            </SectionTitle>
-
+            <Title titleText={"Wishlist"} />
             <div className="wishlist grid">
               {wishlistData?.map((wishlist) => {
                 return (

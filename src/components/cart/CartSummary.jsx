@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { BaseButtonGreen } from "../../styles/button";
 
 const CartSummaryWrapper = styled.div`
@@ -13,7 +13,7 @@ const CartSummaryWrapper = styled.div`
   .summary-list {
     padding: 20px;
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       padding-top: 0;
       padding-right: 0;
       padding-left: 0;

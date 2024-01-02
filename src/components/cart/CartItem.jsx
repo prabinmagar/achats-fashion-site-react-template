@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Link } from "react-router-dom";
 
 const CartTableRowWrapper = styled.tr`
   .cart-tbl {
     &-prod {
-      display: grid;
       grid-template-columns: 80px auto;
       column-gap: 12px;
 
-      @media (max-width: ${breakpointsDown.xl}) {
+      @media (max-width: ${breakpoints.xl}) {
         grid-template-columns: 60px auto;
       }
     }
@@ -34,10 +33,6 @@ const CartTableRowWrapper = styled.tr`
         height: 24px;
       }
     }
-
-    &-shipping {
-      text-transform: uppercase;
-    }
   }
 
   .cart-prod-info {
@@ -55,7 +50,7 @@ const CartTableRowWrapper = styled.tr`
     overflow: hidden;
     border-radius: 8px;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       width: 60px;
       height: 60px;
     }
@@ -66,7 +61,7 @@ const CartItem = ({ cartItem }) => {
   return (
     <CartTableRowWrapper key={cartItem.id}>
       <td>
-        <div className="cart-tbl-prod">
+        <div className="cart-tbl-prod grid">
           <div className="cart-prod-img">
             <img src={cartItem.imgSource} alt="" className="object-fit-cover" />
           </div>
@@ -100,7 +95,7 @@ const CartItem = ({ cartItem }) => {
         </div>
       </td>
       <td>
-        <span className="cart-tbl-shipping text-silver font-bold">
+        <span className="cart-tbl-shipping uppercase text-silver font-bold">
           {cartItem.shipping === 0 ? "Free" : cartItem.shipping}
         </span>
       </td>

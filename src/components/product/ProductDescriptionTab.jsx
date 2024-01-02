@@ -2,26 +2,25 @@ import { useState } from "react";
 import Title from "../common/Title";
 import { productDescriptionTabHeads } from "../../data/data";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { ContentStylings } from "../../styles/styles";
 import ProductDescriptionMedia from "./ProductDescriptionMedia";
 
 const DetailsContent = styled.div`
   margin-top: 60px;
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     margin-top: 40px;
   }
 
   .details-content-wrapper {
-    display: grid;
     grid-template-columns: auto 500px;
     gap: 40px;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       grid-template-columns: auto 400px;
     }
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-template-columns: 100%;
       gap: 24px;
     }
@@ -34,12 +33,12 @@ const DescriptionTabsWrapper = styled.div`
     row-gap: 16px;
     margin-bottom: 24px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-wrap: wrap;
       margin-bottom: 16px;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       gap: 12px;
     }
   }
@@ -62,7 +61,7 @@ const DescriptionTabsWrapper = styled.div`
       }
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding-bottom: 12px;
     }
   }
@@ -71,11 +70,7 @@ const DescriptionTabsWrapper = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     font-size: 10px;
-    color: ${defaultTheme.color_white};
     margin-left: 6px;
 
     &-purple {
@@ -114,7 +109,7 @@ const DescriptionTabsWrapper = styled.div`
       display: block;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding: 12px;
     }
   }
@@ -132,7 +127,7 @@ const ProductDescriptionTab = () => {
   return (
     <DetailsContent>
       <Title titleText={"Product Description"} />
-      <div className="details-content-wrapper">
+      <div className="details-content-wrapper grid">
         <DescriptionTabsWrapper>
           <div className="tabs-heads flex items-center flex-wrap">
             {productDescriptionTabHeads.map((tab) => {
@@ -150,7 +145,9 @@ const ProductDescriptionTab = () => {
                     {tab.tabText}
                   </span>
                   {tab.badgeValue && (
-                    <span className={`tabs-badge tabs-badge-${tab.badgeColor}`}>
+                    <span
+                      className={`tabs-badge inline-flex items-center justify-center text-white tabs-badge-${tab.badgeColor}`}
+                    >
                       {tab.badgeValue}
                     </span>
                   )}

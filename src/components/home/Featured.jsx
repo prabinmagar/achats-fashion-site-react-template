@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import { featuredData } from "../../data/data";
 import { Container, Section } from "../../styles/styles";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const FeaturedContent = styled.div`
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     grid-template-columns: 100%;
   }
 `;
@@ -23,14 +22,12 @@ const FeaturedCardWrapper = styled.div`
   
   .feat-text-top {
     margin-bottom: 24px;
-    font-size: 18px;
   }
   .feat-text-large {
     font-size: 38px;
     line-height: 1.2;
   }
   .feat-text-bottom {
-    font-size: 16px;
     margin-top: 10px;
     margin-bottom: 30px;
   }
@@ -40,11 +37,9 @@ const FeaturedCardWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     max-width: 400px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding: 16px;
     }
   }
@@ -53,19 +48,17 @@ const FeaturedCardWrapper = styled.div`
     object-position: 93px 90px;
     scale: 2;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       object-position: 73px 90px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       object-position: 0px 90px;
     }
   }
 
   .feat-link {
-    font-size: 20px;
     position: relative;
-
     &::after {
       position: absolute;
       content: "";
@@ -82,7 +75,7 @@ const Featured = () => {
   return (
     <Section>
       <Container>
-        <FeaturedContent>
+        <FeaturedContent className="grid">
           {featuredData?.map((featured) => {
             return (
               <FeaturedCardWrapper className="text-white" key={featured.id}>
@@ -91,8 +84,8 @@ const Featured = () => {
                   src={featured.imgSource}
                   alt=""
                 />
-                <div className="feat-card-content">
-                  <p className="feat-text-top font-semibold">
+                <div className="feat-card-content w-full h-full">
+                  <p className="feat-text-top text-xxl font-semibold">
                     {featured.topText}
                   </p>
                   <h3 className="feat-text-large font-bold">
@@ -103,7 +96,7 @@ const Featured = () => {
                   </p>
                   <Link
                     to={featured.buttonLink}
-                    className="feat-link font-extrabold text-white"
+                    className="feat-link font-extrabold text-white text-3xl"
                   >
                     {featured.buttonText}{" "}
                   </Link>

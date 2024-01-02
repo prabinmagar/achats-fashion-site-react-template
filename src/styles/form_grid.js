@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const FormGridWrapper = styled.div`
   max-width: 1100px;
   margin: 60px auto;
 
-  @media(max-width: ${breakpointsDown.lg}){
+  @media(max-width: ${breakpoints.lg}){
     margin: 40px auto;
   }
 
-  @media(max-width: ${breakpointsDown.sm}){
+  @media(max-width: ${breakpoints.sm}){
     margin: 30px auto;
   }
 
@@ -20,7 +20,7 @@ export const FormGridWrapper = styled.div`
       rgba(0, 0, 0, 0.1) 0px 30px 60px -30px;
     min-height: 620px;
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-template-columns: 100%;
     }
   }
@@ -34,7 +34,7 @@ export const FormGridWrapper = styled.div`
       object-position: top;
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       display: none;
     }
   }
@@ -43,11 +43,11 @@ export const FormGridWrapper = styled.div`
     padding: 48px;
     background-color: ${defaultTheme.color_white};
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       padding: 24px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding: 16px;
     }
   }

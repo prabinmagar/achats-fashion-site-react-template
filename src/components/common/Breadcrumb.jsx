@@ -5,10 +5,8 @@ import PropTypes from "prop-types";
 
 const BreadcrumbWrapper = styled.nav`
   margin-bottom: 24px;
-  
+
   .breadcrumb-separator {
-    display: inline-flex;
-    font-size: 12px;
     margin-left: 8px;
     margin-right: 8px;
   }
@@ -53,7 +51,7 @@ const BreadcrumbItem = ({ item, isLast }) => {
         {item.label}
       </Link>
       {!isLast && (
-        <span className="breadcrumb-separator">
+        <span className="breadcrumb-separator inline-flex text-xs">
           <i className="bi bi-chevron-right"></i>
         </span>
       )}

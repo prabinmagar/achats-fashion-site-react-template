@@ -14,6 +14,10 @@ import { Link } from "react-router-dom";
 const SignUpScreenWrapper = styled.section`
   form {
     margin-top: 40px;
+    .form-elem-text {
+      margin-top: -16px;
+      display: block;
+    }
   }
 `;
 
@@ -54,7 +58,7 @@ const SignUpScreen = () => {
                   </span>
                 </FormElement>
                 <PasswordInput fieldName="Password" name="password" />
-                <span className="form-elem-text font-medium -mt-4">
+                <span className="form-elem-text font-medium">
                   Use 8 or more characters with a mix of letters, numbers &
                   symbols
                 </span>

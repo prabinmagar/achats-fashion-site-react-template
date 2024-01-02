@@ -1,20 +1,35 @@
 import styled from "styled-components";
-import { Container, SectionTitle } from "../../styles/styles";
+import { Container } from "../../styles/styles";
 import { UserContent, UserDashboardWrapper } from "../../styles/user";
-import { UserMenu, Breadcrumb } from "../../components";
+import { UserMenu, Breadcrumb, Title } from "../../components";
 import { orderData } from "../../data/data";
 import { currencyFormat } from "../../utils/helper";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Link } from "react-router-dom";
 
 const OrderDetailScreenWrapper = styled.main`
+  .btn-and-title-wrapper {
+    margin-bottom: 24px;
+    .title {
+      margin-bottom: 0;
+    }
+
+    .btn-go-back {
+      margin-right: 12px;
+      transition: ${defaultTheme.default_transition};
+
+      &:hover {
+        margin-right: 16px;
+      }
+    }
+  }
   .order-d-top {
     background-color: ${defaultTheme.color_whitesmoke};
     padding: 26px 32px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.05);
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-direction: column;
       row-gap: 12px;
     }
@@ -23,33 +38,18 @@ const OrderDetailScreenWrapper = styled.main`
   .order-d-no {
     margin-bottom: 6px;
   }
-
-  .section-title {
-    .btn-go-back {
-      margin-right: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: ${defaultTheme.default_transition};
-
-      &:hover {
-        margin-right: 16px;
-      }
-    }
-  }
 `;
 
 const OrderDetailStatusWrapper = styled.div`
   margin: 0 36px;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin: 0 10px;
     overflow-x: scroll;
   }
 
   .order-status {
     height: 4px;
-    background-color: ${defaultTheme.color_silver};
     margin: 50px 0;
     max-width: 580px;
     width: 340px;
@@ -58,7 +58,7 @@ const OrderDetailStatusWrapper = styled.div`
     position: relative;
     margin-bottom: 70px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       margin-left: 40px;
       margin-right: 40px;
     }
@@ -67,7 +67,6 @@ const OrderDetailStatusWrapper = styled.div`
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-color: ${defaultTheme.color_silver};
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -121,7 +120,6 @@ const OrderDetailStatusWrapper = styled.div`
       top: calc(100% + 8px);
       left: 50%;
       transform: translateX(-50%);
-      color: ${defaultTheme.color_silver};
     }
   }
 `;
@@ -148,7 +146,7 @@ const OrderDetailMessageWrapper = styled.div`
     border-right: 18px solid transparent;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-top: 10px;
   }
 `;
@@ -167,7 +165,6 @@ const OrderDetailListWrapper = styled.div`
   }
 
   .order-d-item {
-    display: grid;
     grid-template-columns: 80px 1fr 1fr 32px;
     gap: 20px;
     padding: 12px 0;
@@ -180,7 +177,7 @@ const OrderDetailListWrapper = styled.div`
       gap: 16px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       grid-template-columns: 50px 3fr 2fr;
       gap: 16px;
     }
@@ -206,7 +203,7 @@ const OrderDetailListWrapper = styled.div`
       overflow: hidden;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         width: 50px;
         height: 50px;
       }
@@ -234,7 +231,7 @@ const OrderDetailListWrapper = styled.div`
         color: ${defaultTheme.color_sea_green};
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         position: absolute;
         right: 0;
         top: 10px;
@@ -267,12 +264,15 @@ const OrderDetailScreen = () => {
         <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
-            <SectionTitle className="section-title">
-              <Link to="/order" className="btn-go-back text-xxl">
+            <div className="flex items-center justify-start btn-and-title-wrapper">
+              <Link
+                to="/order"
+                className="btn-go-back inline-flex items-center justify-center text-xxl"
+              >
                 <i className="bi bi-chevron-left"></i>
               </Link>
-              <h3>Order Details</h3>
-            </SectionTitle>
+              <Title titleText={"Order Details"} />
+            </div>
 
             <div className="order-d-wrapper">
               <div className="order-d-top flex justify-between items-start">
@@ -290,24 +290,24 @@ const OrderDetailScreen = () => {
               </div>
 
               <OrderDetailStatusWrapper className="order-d-status">
-                <div className="order-status">
-                  <div className="order-status-dot status-done">
-                    <span className="order-status-text font-semibold text-center no-wrap">
+                <div className="order-status bg-silver">
+                  <div className="order-status-dot status-done bg-silver">
+                    <span className="order-status-text font-semibold text-center no-wrap text-silver">
                       Order Placed
                     </span>
                   </div>
-                  <div className="order-status-dot status-current">
-                    <span className="order-status-text font-semibold text-center no-wrap">
+                  <div className="order-status-dot status-current bg-silver">
+                    <span className="order-status-text font-semibold text-center no-wrap text-silver">
                       In Progress
                     </span>
                   </div>
-                  <div className="order-status-dot">
-                    <span className="order-status-text font-semibold text-center no-wrap">
+                  <div className="order-status-dot bg-silver">
+                    <span className="order-status-text font-semibold text-center no-wrap text-silver">
                       Shipped
                     </span>
                   </div>
-                  <div className="order-status-dot">
-                    <span className="order-status-text font-semibold text-center no-wrap">
+                  <div className="order-status-dot bg-silver">
+                    <span className="order-status-text font-semibold text-center no-wrap text-silver">
                       Delivered
                     </span>
                   </div>
@@ -326,7 +326,7 @@ const OrderDetailScreen = () => {
               <OrderDetailListWrapper className="order-d-list">
                 {orderData[0].items?.map((item) => {
                   return (
-                    <div className="order-d-item" key={item.id}>
+                    <div className="order-d-item grid" key={item.id}>
                       <div className="order-d-item-img">
                         <img
                           src={item.imgSource}

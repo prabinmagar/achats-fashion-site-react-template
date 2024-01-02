@@ -1,33 +1,35 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import PropTypes from "prop-types";
 
 const ProductPreviewWrapper = styled.div`
   grid-template-columns: 72px auto;
   gap: 24px;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     gap: 16px;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     grid-template-columns: 42px auto;
     gap: 12px;
   }
 
-  @media (max-width: ${breakpointsDown.xs}) {
+  @media (max-width: ${breakpoints.xs}) {
     grid-template-columns: 100%;
   }
 
   .preview-items {
-    width: 100%;
-
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       width: 80%;
       margin-right: auto;
       margin-left: auto;
       order: 2;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
   }
 
@@ -39,7 +41,7 @@ const ProductPreviewWrapper = styled.div`
     cursor: pointer;
     transition: ${defaultTheme.default_transition};
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       width: 40px;
       height: 40px;
     }
@@ -53,7 +55,7 @@ const ProductPreviewWrapper = styled.div`
       padding-top: 4px;
       padding-bottom: 4px;
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         display: flex;
         justify-content: center;
       }
@@ -64,15 +66,15 @@ const ProductPreviewWrapper = styled.div`
     height: 600px;
     overflow: hidden;
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       height: 520px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       height: 400px;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       height: 320px;
     }
   }
@@ -89,7 +91,7 @@ const ProductPreview = ({ previewImages }) => {
 
   return (
     <ProductPreviewWrapper className="grid items-center">
-      <div className="preview-items">
+      <div className="preview-items w-full">
         {previewImages.map((previewImage) => {
           return (
             <div

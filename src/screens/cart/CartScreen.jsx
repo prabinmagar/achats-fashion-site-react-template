@@ -1,12 +1,18 @@
 import styled from "styled-components";
-import { CartDiscount, CartSummary, CartTable, Breadcrumb } from "../../components";
+import {
+  CartDiscount,
+  CartSummary,
+  CartTable,
+  Breadcrumb,
+} from "../../components";
 import { cartItems } from "../../data/data";
 import { Container } from "../../styles/styles";
-import { breakpointsDown } from "../../styles/themes/default";
+import { breakpoints } from "../../styles/themes/default";
 import { Link } from "react-router-dom";
 
 const CartPageWrapper = styled.main`
   padding: 48px 0;
+
   .breadcrumb-nav {
     margin-bottom: 20px;
   }
@@ -14,21 +20,19 @@ const CartPageWrapper = styled.main`
 
 const CartContent = styled.div`
   margin-top: 40px;
-  display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  align-items: start;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     grid-template-columns: 100%;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-top: 24px;
   }
 
   .cart-list {
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       overflow-x: scroll;
     }
   }
@@ -36,11 +40,11 @@ const CartContent = styled.div`
   .cart-content-right {
     gap: 24px;
 
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-template-columns: 100%;
     }
   }
@@ -69,7 +73,7 @@ const CartScreen = () => {
           </p>
         </div>
 
-        <CartContent>
+        <CartContent className="grid items-start">
           <div className="cart-content-left">
             <CartTable cartItems={cartItems} />
           </div>

@@ -12,15 +12,10 @@ const NotFoundScreenWrapper = styled.main`
   }
   .page-not-found-msg {
     border-radius: 6px;
-    padding: 24px 24px 0 24px;
+    padding: 24px 0;
     margin-top: 16px;
-    width: 100%;
     max-width: 400px;
     gap: 12px;
-
-    &-text {
-      font-size: 24px;
-    }
   }
 `;
 
@@ -36,8 +31,8 @@ const NotFoundScreen = () => {
               className="object-fit-cover"
             />
           </div>
-          <div className="page-not-found-msg flex flex-col justify-center items-center">
-            <p className="page-not-found-msg-text font-semibold text-outerspace">
+          <div className="page-not-found-msg w-full flex flex-col justify-center items-center">
+            <p className="text-4xl font-semibold text-outerspace">
               Oops! Page not found.
             </p>
             <p className="text-gray text-center">

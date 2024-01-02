@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BaseLinkGreen } from "../../styles/button";
 import { currencyFormat } from "../../utils/helper";
 import PropTypes from "prop-types";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const OrderItemWrapper = styled.div`
   margin: 30px 0;
@@ -17,20 +17,17 @@ const OrderItemWrapper = styled.div`
     padding: 24px 32px;
     border-radius: 8px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding: 20px 24px;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       padding: 12px 16px;
     }
   }
 
   .order-info-group {
-    display: flex;
-    flex-wrap: wrap;
-
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-direction: column;
     }
   }
@@ -46,12 +43,12 @@ const OrderItemWrapper = styled.div`
 
     &:nth-child(even) {
       text-align: right;
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         text-align: left;
       }
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       width: 100%;
       margin: 2px 0;
     }
@@ -61,11 +58,11 @@ const OrderItemWrapper = styled.div`
     margin: 28px 0;
     gap: 12px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       margin: 20px 0;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-direction: column;
     }
 
@@ -77,7 +74,6 @@ const OrderItemWrapper = styled.div`
     }
 
     &-content {
-      display: grid;
       grid-template-columns: 100px auto;
       gap: 18px;
     }
@@ -99,7 +95,7 @@ const OrderItem = ({ order }) => {
     <OrderItemWrapper>
       <div className="order-item-details">
         <h3 className="text-xl order-item-title">Order no: {order.order_no}</h3>
-        <div className="order-info-group">
+        <div className="order-info-group flex flex-wrap">
           <div className="order-info-item">
             <span className="text-gray font-semibold">Order Date:</span>
             <span className="text-silver">{order.order_date}</span>
@@ -121,7 +117,7 @@ const OrderItem = ({ order }) => {
         </div>
       </div>
       <div className="order-overview flex justify-between">
-        <div className="order-overview-content">
+        <div className="order-overview-content grid">
           <div className="order-overview-img">
             <img
               src={order.items[0].imgSource}

@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { defaultTheme } from "../../styles/themes/default";
 
 const SignOptions = styled.div`
-  display: grid;
   row-gap: 12px;
 
   .sign-option {
@@ -29,7 +28,7 @@ const SignOptions = styled.div`
 
 const AuthOptions = () => {
   return (
-    <SignOptions>
+    <SignOptions className="grid">
       <Link to="/" className="sign-option flex items-center justify-center">
         <span className="sign-opt-icon flex items-center justify-center">
           <img src={staticImages.google} />

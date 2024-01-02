@@ -6,15 +6,14 @@ import { Container } from "../../styles/styles";
 import { FormElement, Input } from "../../styles/form";
 import { BaseButtonBlack } from "../../styles/button";
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const SignInScreenWrapper = styled.section`
-  // form separator
   .form-separator {
     margin: 32px 0;
     column-gap: 18px;
 
-    @media(max-width: ${breakpointsDown.lg}){
+    @media (max-width: ${breakpoints.lg}) {
       margin: 24px 0;
     }
 
@@ -31,6 +30,11 @@ const SignInScreenWrapper = styled.section`
       height: 1px;
       background-color: ${defaultTheme.color_platinum};
     }
+  }
+
+  .form-elem-text {
+    margin-top: -16px;
+    display: block;
   }
 `;
 
@@ -76,7 +80,7 @@ const SignInScreen = () => {
                 <PasswordInput fieldName="Password" name="password" />
                 <Link
                   to="/reset"
-                  className="form-elem-text text-end font-medium -mt-4"
+                  className="form-elem-text text-end font-medium"
                 >
                   Forgot your password ?
                 </Link>

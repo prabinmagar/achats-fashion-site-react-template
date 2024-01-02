@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { defaultTheme } from "../themes/default";
+import { breakpoints, defaultTheme } from "../themes/default";
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -67,6 +67,9 @@ export const GlobalStyles = createGlobalStyle`
         }
         &-stretch {
             align-items: stretch;
+        }
+        &-baseline{
+            align-items: baseline;
         }
     }
 
@@ -201,40 +204,24 @@ export const GlobalStyles = createGlobalStyle`
     .bg-outerspace {
         background-color: ${defaultTheme.color_outerspace};
     }
-
-    // negative margin
-    .-mt-4 {
-        margin-top: -16px;
-        display: block;
-    }
-
-    // scrollbar
-    .scrollbar-x {
-        overflow-x: scroll;
-        &::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background-color: grey;
-        }
-    }
-
-    @media screen and (max-width: 420px) {
-        .container {
-            padding: 0 16px !important;
-        }
+    .bg-silver{
+        background-color: ${defaultTheme.color_silver};
     }
 
     // page
     .page-py-spacing {
         padding-top: 48px !important;
         padding-bottom: 48px !important;
+
+        @media(max-width: ${breakpoints.lg}){
+            padding-top: 36px!important;
+            padding-bottom: 36px!important;
+        }
+
+        @media(max-width: ${breakpoints.sm}){
+            padding-top: 24px!important;
+            padding-bottom: 24px!important;
+        }
     }
 
     // typography
@@ -264,6 +251,14 @@ export const GlobalStyles = createGlobalStyle`
     .text-3xl {
         font-size: 20px;
     }
+    .text-4xl{
+        font-size: 24px;
+    }
+
+    .title-sm{
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
 
     @media screen and (max-width: 575.98px){
         .text-xs {
@@ -286,6 +281,9 @@ export const GlobalStyles = createGlobalStyle`
         }
         .text-3xl {
             font-size: 19px !important;
+        }
+        .text-4xl{
+            font-size: 22px!important;
         }
     }
 
@@ -310,6 +308,9 @@ export const GlobalStyles = createGlobalStyle`
         }
         .text-3xl {
             font-size: 18px !important;
+        }
+        .text-4xl{
+            font-size: 20px!important;
         }
     }
 `;

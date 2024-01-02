@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const commonCardStyles = css`
   padding-right: 12px;
@@ -22,7 +22,7 @@ export const commonCardStyles = css`
       }
     }
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       margin-bottom: 12px;
     }
   }

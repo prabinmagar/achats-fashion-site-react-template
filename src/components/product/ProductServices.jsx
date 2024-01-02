@@ -1,24 +1,27 @@
 import styled from "styled-components";
 import { servicesData } from "../../data/data";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 
 const ProductServicesWrapper = styled.div`
   margin-top: 40px;
   border-top: 1px solid ${defaultTheme.color_silver};
   padding-top: 40px;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     margin-top: 32px;
     padding-top: 24px;
   }
 
   .prod-services-list {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       gap: 12px;
+    }
+
+    @media (max-width: ${breakpoints.xs}) {
+      grid-template-columns: 100%;
     }
   }
 
@@ -32,7 +35,7 @@ const ProductServicesWrapper = styled.div`
       height: 44px;
       flex-basis: 44px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         width: 32px;
         height: 32px;
         flex-basis: 32px;
@@ -44,7 +47,7 @@ const ProductServicesWrapper = styled.div`
 const ProductServices = () => {
   return (
     <ProductServicesWrapper>
-      <div className="prod-services-list">
+      <div className="prod-services-list grid">
         {servicesData?.map((service) => {
           return (
             <div

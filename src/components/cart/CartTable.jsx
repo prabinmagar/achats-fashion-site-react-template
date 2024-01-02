@@ -1,33 +1,41 @@
 import PropTypes from "prop-types";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints } from "../../styles/themes/default";
 import styled from "styled-components";
 import CartItem from "./CartItem";
 
+const ScrollbarXWrapper = styled.div`
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: grey;
+  }
+`;
+
 const CartTableWrapper = styled.table`
-  width: 100%;
   border-collapse: collapse;
   min-width: 680px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   thead {
-    tr {
-      text-align: left;
-    }
     th {
       height: 48px;
-      background-color: ${defaultTheme.color_outerspace};
-      color: ${defaultTheme.color_white};
       padding-left: 16px;
       padding-right: 16px;
-      text-transform: capitalize;
-      font-weight: 600;
       letter-spacing: 0.03em;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         padding: 16px 12px;
       }
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         padding: 10px;
       }
     }
@@ -38,11 +46,11 @@ const CartTableWrapper = styled.table`
       padding: 24px 16px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         padding: 16px 12px;
       }
 
-      @media (max-width: ${breakpointsDown.xs}) {
+      @media (max-width: ${breakpoints.xs}) {
         padding: 10px 6px;
       }
     }
@@ -59,13 +67,13 @@ const CartTable = ({ cartItems }) => {
     "Action",
   ];
   return (
-    <div className="scrollbar-x">
-      <CartTableWrapper>
+    <ScrollbarXWrapper>
+      <CartTableWrapper className="w-full">
         <thead>
-          <tr>
+          <tr className="text-start">
             {CART_TABLE_HEADS?.map((column, index) => (
               <th
-                className={`text-base${
+                className={`bg-outerspace text-white font-semibold capitalize text-base${
                   index === CART_TABLE_HEADS.length - 1 ? " text-center" : ""
                 }`}
                 key={index}
@@ -81,7 +89,7 @@ const CartTable = ({ cartItems }) => {
           })}
         </tbody>
       </CartTableWrapper>
-    </div>
+    </ScrollbarXWrapper>
   );
 };
 

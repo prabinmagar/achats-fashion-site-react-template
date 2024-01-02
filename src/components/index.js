@@ -46,3 +46,4 @@ export { default as OrderItem } from "./user/OrderItem";
 // checkout
 export { default as ShippingPayment } from "./checkout/ShippingPayment";
 export { default as Billing } from "./checkout/Billing";
+export { default as CheckoutSummary } from "./checkout/CheckoutSummary";

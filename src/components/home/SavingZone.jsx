@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { Container, Section, SectionTitle } from "../../styles/styles";
-import { breakpointsDown } from "../../styles/themes/default";
+import { Container, Section } from "../../styles/styles";
+import { breakpoints } from "../../styles/themes/default";
 import { savingZoneData } from "../../data/data";
 import { BaseLinkOutlineWhite } from "../../styles/button";
+import Title from "../common/Title";
 
 const ProductGridWrapper = styled.div`
   grid-template-columns: repeat(6, 1fr);
@@ -15,54 +16,54 @@ const ProductCardOverlayWrapper = styled.div`
   border-radius: 12px;
   overflow: hidden;
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     height: 360px;
   }
 
   &:nth-child(1) {
     grid-column: 1/3;
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-column: 1/4;
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-column: 1/7;
     }
   }
 
   &:nth-child(2) {
     grid-column: 3/5;
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-column: 4/7;
     }
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-column: 1/7;
     }
   }
 
   &:nth-child(3) {
     grid-column: 5/7;
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-column: 1/4;
     }
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-column: 1/7;
     }
   }
 
   &:nth-child(4) {
     grid-column: 1/4;
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-column: 4/7;
     }
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       grid-column: 1/7;
     }
   }
 
   &:nth-child(5) {
     grid-column: 4/7;
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-column: 1/7;
     }
   }
@@ -96,25 +97,15 @@ const ProductCardOverlayWrapper = styled.div`
     }
 
     .discount-text {
-      font-size: 18px;
-      text-transform: uppercase;
       margin-top: 4px;
     }
 
     .info-arrow {
       margin: 16px 0 16px auto;
       width: 110px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
     }
 
-    .info-btn {
-      text-transform: uppercase;
-    }
-
-    @media (max-width: ${breakpointsDown.xl}) {
+    @media (max-width: ${breakpoints.xl}) {
       padding: 16px;
     }
   }
@@ -124,9 +115,7 @@ const SavingZone = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle>
-          <h3>Big Saving Zone</h3>
-        </SectionTitle>
+        <Title titleText={"Big Saving Zone"} />
         <ProductGridWrapper className="grid">
           {savingZoneData?.map((savingZone) => {
             return (
@@ -151,16 +140,16 @@ const SavingZone = () => {
                   <p className="info-text text-base">
                     {savingZone.description}
                   </p>
-                  <p className="discount-text text-bold">
+                  <p className="discount-text text-bold text-xxl uppercase">
                     upto {savingZone.discount}% off
                   </p>
-                  <div className="info-arrow">
+                  <div className="info-arrow flex items-center justify-center text-xxl">
                     <i className="bi bi-arrow-down"></i>
                   </div>
                   <BaseLinkOutlineWhite
                     as={BaseLinkOutlineWhite}
                     to="/"
-                    className="info-btn"
+                    className="uppercase"
                   >
                     shop now
                   </BaseLinkOutlineWhite>

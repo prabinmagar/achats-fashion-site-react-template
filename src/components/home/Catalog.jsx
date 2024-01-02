@@ -1,15 +1,14 @@
-import { Container, Section, SectionTitle } from "../../styles/styles";
+import { Container, Section } from "../../styles/styles";
 import PropTypes from "prop-types";
 import ProductList from "../product/ProductList";
+import Title from "../common/Title";
 
 const Catalog = ({ catalogTitle, products }) => {
   return (
     <Section>
       <Container>
         <div className="categories-content">
-          <SectionTitle>
-            <h3>{catalogTitle}</h3>
-          </SectionTitle>
+          <Title titleText={catalogTitle} />
           <ProductList products={products} />
         </div>
       </Container>

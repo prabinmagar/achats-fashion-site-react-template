@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const Input = styled.input`
   font-size: 14px;
@@ -11,7 +11,7 @@ export const Input = styled.input`
     color: ${defaultTheme.color_silver};
     font-weight: 400;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 13px;
     }
   }
@@ -28,7 +28,7 @@ export const Textarea = styled.textarea`
     color: ${defaultTheme.color_silver};
     font-weight: 400;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 13px;
     }
   }
@@ -48,7 +48,7 @@ export const InputGroupWrapper = styled.div`
     width: 40px;
     height: 40px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       height: 36px;
     }
   }

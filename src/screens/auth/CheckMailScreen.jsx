@@ -4,10 +4,13 @@ import { FormElement, Input } from "../../styles/form";
 import { FormGridWrapper, FormTitle } from "../../styles/form_grid";
 import { Container } from "../../styles/styles";
 import { staticImages } from "../../utils/images";
+import styled from "styled-components";
+
+const CheckMailScreenWrapper = styled.section``;
 
 const CheckMailScreen = () => {
   return (
-    <main>
+    <CheckMailScreenWrapper>
       <FormGridWrapper>
         <Container>
           <div className="form-grid-content">
@@ -55,7 +58,7 @@ const CheckMailScreen = () => {
           </div>
         </Container>
       </FormGridWrapper>
-    </main>
+    </CheckMailScreenWrapper>
   );
 };
 

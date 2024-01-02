@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import { Container, SectionTitle } from "../../styles/styles";
+import { Container } from "../../styles/styles";
 import { UserContent, UserDashboardWrapper } from "../../styles/user";
-import { UserMenu, Breadcrumb } from "../../components";
+import { UserMenu, Breadcrumb, Title } from "../../components";
 import { FormElement, Input } from "../../styles/form";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { BaseLinkGreen } from "../../styles/button";
 import { Link } from "react-router-dom";
 
 const AccountScreenWrapper = styled.main`
   .address-list {
     margin-top: 20px;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -23,7 +22,6 @@ const AccountScreenWrapper = styled.main`
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 25px;
-    display: grid;
     row-gap: 8px;
   }
 
@@ -34,9 +32,6 @@ const AccountScreenWrapper = styled.main`
       height: 28px;
       border-radius: 8px;
       padding: 2px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: ${defaultTheme.color_whitesmoke};
     }
   }
@@ -65,9 +60,8 @@ const AccountScreen = () => {
         <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
-            <SectionTitle className="section-title">
-              <h3>My Account</h3>
-            </SectionTitle>
+            <Title titleText={"My Account"} />
+            <h4 className="title-sm">Contact Details</h4>
             <form>
               <div className="form-wrapper">
                 <FormElement className="form-elem">
@@ -149,12 +143,10 @@ const AccountScreen = () => {
               </div>
             </form>
             <div>
-              <SectionTitle className="section-title">
-                <h3>My Contact Address</h3>
-              </SectionTitle>
+              <h4 className="title-sm">My Contact Address</h4>
               <BaseLinkGreen to="/account/add">Add Address</BaseLinkGreen>
-              <div className="address-list">
-                <div className="address-item">
+              <div className="address-list grid">
+                <div className="address-item grid">
                   <p className="text-outerspace text-lg font-semibold address-title">
                     Jhanvi Shah
                   </p>
@@ -164,8 +156,10 @@ const AccountScreen = () => {
                     derasar, Vijaynagar road{" "}
                   </p>
                   <ul className="address-tags flex flex-wrap">
-                    <li className="text-gray text-base font-medium">Home</li>
-                    <li className="text-gray text-base font-medium">
+                    <li className="text-gray text-base font-medium inline-flex items-center justify-center">
+                      Home
+                    </li>
+                    <li className="text-gray text-base font-medium inline-flex items-center justify-center">
                       Default billing address
                     </li>
                   </ul>
@@ -185,7 +179,7 @@ const AccountScreen = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="address-item">
+                <div className="address-item grid">
                   <p className="text-outerspace text-lg font-semibold address-title">
                     Jhanvi Shah
                   </p>
@@ -195,8 +189,10 @@ const AccountScreen = () => {
                     derasar, Vijaynagar road{" "}
                   </p>
                   <ul className="address-tags flex flex-wrap">
-                    <li className="text-gray text-base font-medium">Home</li>
-                    <li className="text-gray text-base font-medium">
+                    <li className="text-gray text-base font-medium inline-flex items-center justify-center">
+                      Home
+                    </li>
+                    <li className="text-gray text-base font-medium inline-flex items-center justify-center">
                       Default billing address
                     </li>
                   </ul>

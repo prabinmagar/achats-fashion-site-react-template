@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Input } from "../../styles/form";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { cardsData } from "../../data/data";
 import { BaseButtonGreen } from "../../styles/button";
 
@@ -21,7 +21,7 @@ const ShippingPaymentWrapper = styled.div`
       margin-top: 24px;
       border-radius: 12px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         padding: 16px;
         border-radius: 8px;
         margin-top: 16px;
@@ -35,7 +35,7 @@ const ShippingPaymentWrapper = styled.div`
     .horiz-line-separator {
       margin: 20px 0;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         margin: 12px 0;
       }
     }
@@ -52,11 +52,11 @@ const ShippingPaymentWrapper = styled.div`
       gap: 20px;
       margin: 24px 0 30px 34px;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         gap: 16px;
       }
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         margin-top: 16px;
         margin-bottom: 16px;
         gap: 10px;
@@ -80,18 +80,13 @@ const ShippingPaymentWrapper = styled.div`
 
           &:checked {
             & + .card-wrapper {
-              &::after {
-                content: "\F26A";
+              .card-selected{
                 position: absolute;
-                top: -5px;
+                top: -8px;
                 right: -5px;
                 width: 14px;
                 height: 14px;
                 display: inline-block;
-                content: "";
-                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='green' class='bi bi-check-circle-fill' viewBox='0 0 16 16'><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/></svg>");
-                background-repeat: no-repeat;
-                background-size: 14px 14px;
               }
             }
           }
@@ -101,14 +96,13 @@ const ShippingPaymentWrapper = styled.div`
           position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: white;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
+
+          .card-selected{
+            display: none;
+            transition: ${defaultTheme.default_transition};
+          }
         }
       }
     }
@@ -118,7 +112,7 @@ const ShippingPaymentWrapper = styled.div`
       display: grid;
       row-gap: 16px;
 
-      @media (max-width: ${breakpointsDown.sm}) {
+      @media (max-width: ${breakpoints.sm}) {
         margin-left: 0;
       }
 
@@ -127,7 +121,7 @@ const ShippingPaymentWrapper = styled.div`
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
 
-        @media (max-width: ${breakpointsDown.sm}) {
+        @media (max-width: ${breakpoints.sm}) {
           grid-template-columns: 100%;
           gap: 0;
         }
@@ -143,7 +137,7 @@ const ShippingPaymentWrapper = styled.div`
           border-color: ${defaultTheme.color_sea_green};
         }
 
-        @media (max-width: ${breakpointsDown.sm}) {
+        @media (max-width: ${breakpoints.sm}) {
           margin-bottom: 10px;
           border-radius: 4px;
         }
@@ -152,7 +146,7 @@ const ShippingPaymentWrapper = styled.div`
   }
 
   .pay-now-btn {
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       width: 100%;
     }
   }
@@ -235,8 +229,11 @@ const ShippingPayment = () => {
                     key={card.id}
                   >
                     <Input type="radio" name="payment_cards" />
-                    <div className="card-wrapper">
+                    <div className="card-wrapper bg-white w-full h-full flex items-center justify-center">
                       <img src={card.imgSource} alt="" />
+                      <div className="card-selected text-sea-green">
+                        <i className="bi bi-check-circle-fill"></i>
+                      </div>
                     </div>
                   </div>
                 );

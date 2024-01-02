@@ -29,8 +29,8 @@ const WishListEmptyScreenWrapper = styled.main`
 `;
 
 const breadcrumbItems = [
-  { label: "Home", link: "/"},
-  { label: "Wishlist", link: "/wishlist"}
+  { label: "Home", link: "/" },
+  { label: "Wishlist", link: "/wishlist" },
 ];
 
 const WishListEmptyScreen = () => {
@@ -58,8 +58,8 @@ const WishListEmptyScreen = () => {
             </div>
           </UserContent>
         </UserDashboardWrapper>
-        <Catalog catalogTitle={"Recently Viewed"} products={recentViewedData} />
       </Container>
+      <Catalog catalogTitle={"Recently Viewed"} products={recentViewedData} />
     </WishListEmptyScreenWrapper>
   );
 };

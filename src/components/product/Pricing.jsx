@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Container, Section, SectionTitle } from "../../styles/styles";
+import { Container, Section } from "../../styles/styles";
 import { pricingData } from "../../data/data";
-import { defaultTheme } from "../../styles/themes/default";
+import Title from "../common/Title";
 
 const PricingContent = styled.div`
   .table-wrapper {
@@ -26,7 +26,6 @@ const PricingContent = styled.div`
     tbody {
       td {
         padding: 12px 10px;
-        color: ${defaultTheme.color_gray};
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
     }
@@ -38,9 +37,7 @@ const Pricing = () => {
     <Section>
       <Container>
         <PricingContent>
-          <SectionTitle >
-            <h3>Buy Women&apos;s Clothing at Best Price</h3>
-          </SectionTitle>
+          <Title titleText={"Buy Women&apos;s Clothing at Best Price"} />
           <div className="table-wrapper">
             <table className="pricing-table w-full">
               <thead className="bg-sea-green">
@@ -55,8 +52,10 @@ const Pricing = () => {
                 {pricingData?.map((pricing) => {
                   return (
                     <tr key={pricing.id}>
-                      <td className="text-base">{pricing.name}</td>
-                      <td className="text-end text-base">${pricing.price}</td>
+                      <td className="text-base text-gray">{pricing.name}</td>
+                      <td className="text-end text-base text-gray">
+                        ${pricing.price}
+                      </td>
                     </tr>
                   );
                 })}

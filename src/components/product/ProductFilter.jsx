@@ -12,10 +12,10 @@ import {
 import { ProductFilterList, StyleFilterList } from "../../data/data";
 
 const ProductFilter = () => {
-  const [isPriceFilterOpen, setPriceFilterOpen] = useState(false);
-  const [isColorFilterOpen, setColorFilterOpen] = useState(false);
-  const [isSizeFilterOpen, setSizeFilterOpen] = useState(false);
-  const [isStyleFilterOpen, setStyleFilterOpen] = useState(false);
+  const [isPriceFilterOpen, setPriceFilterOpen] = useState(true);
+  const [isColorFilterOpen, setColorFilterOpen] = useState(true);
+  const [isSizeFilterOpen, setSizeFilterOpen] = useState(true);
+  const [isStyleFilterOpen, setStyleFilterOpen] = useState(true);
 
   const toggleFilter = (filter) => {
     switch (filter) {

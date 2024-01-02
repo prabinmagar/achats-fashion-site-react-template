@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { bannerData } from "../../data/data";
 import styled from "styled-components";
 import { BaseLinkWhite } from "../../styles/button";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Container } from "../../styles/styles";
 import CustomNextArrow from "../common/CustomNextArrow";
 import CustomPrevArrow from "../common/CustomPrevArrow";
@@ -20,7 +20,7 @@ const HeroSliderWrapper = styled.div`
     svg {
       color: ${defaultTheme.color_outerspace};
     }
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       left: 16px !important;
     }
   }
@@ -31,7 +31,7 @@ const HeroSliderWrapper = styled.div`
     svg {
       color: ${defaultTheme.color_outerspace};
     }
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       right: 16px !important;
     }
   }
@@ -69,7 +69,7 @@ const HeroSliderContent = styled.div`
     height: 42px;
     min-width: 120px;
     margin-top: 20px;
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       margin-top: 12px;
     }
   }
@@ -78,16 +78,16 @@ const HeroSliderContent = styled.div`
     max-width: 840px;
     margin-left: 0;
 
-    @media (max-width: ${breakpointsDown.xxl}) {
+    @media (max-width: ${breakpoints.xxl}) {
       margin-left: 80px;
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       margin-left: 16px;
       margin-right: 16px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       margin: 0;
       text-align: center;
     }
@@ -96,31 +96,30 @@ const HeroSliderContent = styled.div`
   .hero-text-top {
     font-size: 32px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 26px;
     }
   }
 
   .hero-text-large {
     font-size: 78px;
-    font-weight: 800;
     letter-spacing: 0.315px;
     line-height: 1.2;
     margin-bottom: 20px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 60px;
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       font-size: 48px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       font-size: 36px;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       font-size: 32px;
     }
   }
@@ -129,7 +128,7 @@ const HeroSliderContent = styled.div`
     font-size: 26px;
     margin-bottom: 24px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       font-size: 20px;
     }
   }
@@ -184,7 +183,7 @@ const Hero = () => {
                     <p className="hero-text-top font-bold italic">
                       {banner.topText}
                     </p>
-                    <h2 className="hero-text-large">{banner.titleText}</h2>
+                    <h2 className="hero-text-large font-extrabold">{banner.titleText}</h2>
                     <p className="hero-text-bottom font-semibold uppercase">
                       {banner.bottomText}
                     </p>

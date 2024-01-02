@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const UserDashboardWrapper = styled.div`
   margin-top: 40px;
@@ -7,18 +7,18 @@ export const UserDashboardWrapper = styled.div`
   grid-template-columns: 240px auto;
   gap: 50px;
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     gap: 24px;
     grid-template-columns: 200px auto;
   }
 
-  @media (max-width: ${breakpointsDown.md}) {
+  @media (max-width: ${breakpoints.md}) {
     grid-template-columns: 100%;
   }
 `;
 
 export const UserContent = styled.div`
-  .section-title {
+  .title {
     padding-left: 0 !important;
     &::after {
       display: none;
@@ -35,11 +35,11 @@ export const UserContent = styled.div`
     column-gap: 32px;
     max-width: 895px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       column-gap: 12px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -65,7 +65,7 @@ export const UserContent = styled.div`
   .form-elem-wide {
     grid-column: 1 / 3;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       grid-column: 1 / 2;
     }
   }

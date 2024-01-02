@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "./themes/default";
+import { breakpoints, defaultTheme } from "./themes/default";
 
 export const FilterTitle = styled.div`
   border-top: 1px solid rgba(190, 188, 189, 0.4);
@@ -19,7 +19,7 @@ export const FilterTitle = styled.div`
     }
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -29,7 +29,7 @@ export const FilterWrap = styled.div`
   padding: 20px;
   transition: ${defaultTheme.default_transition};
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     display: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -52,7 +52,7 @@ export const ProductCategoryFilter = styled.div`
       }
     }
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       padding: 2px 0;
     }
   }
@@ -137,7 +137,7 @@ export const ColorsFilter = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
     gap: 16px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-template-columns: repeat(auto-fill, minmax(24px, 1fr));
       gap: 8px;
     }
@@ -150,7 +150,7 @@ export const ColorsFilter = styled.div`
     cursor: pointer;
     position: relative;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       width: 26px;
       height: 26px;
     }
@@ -165,7 +165,7 @@ export const ColorsFilter = styled.div`
       z-index: 5;
       cursor: pointer;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         width: 26px;
         height: 26px;
       }
@@ -177,7 +177,7 @@ export const ColorsFilter = styled.div`
           border-radius: 12px;
           scale: 0.8;
 
-          @media (max-width: ${breakpointsDown.lg}) {
+          @media (max-width: ${breakpoints.lg}) {
             border-radius: 6px;
           }
         }
@@ -191,7 +191,7 @@ export const ColorsFilter = styled.div`
         scale: 0.9;
       }
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         width: 26px;
         height: 26px;
       }
@@ -204,7 +204,7 @@ export const SizesFilter = styled.div`
     gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(60px, 60px));
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       grid-template-columns: repeat(auto-fill, minmax(40px, 40px));
       gap: 6px;
     }
@@ -223,7 +223,7 @@ export const SizesFilter = styled.div`
       width: 60px;
       text-transform: uppercase;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         width: 40px;
       }
     }
@@ -238,7 +238,7 @@ export const SizesFilter = styled.div`
       z-index: 5;
       cursor: pointer;
 
-      @media (max-width: ${breakpointsDown.lg}) {
+      @media (max-width: ${breakpoints.lg}) {
         width: 40px;
       }
 

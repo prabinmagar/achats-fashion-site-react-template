@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Container, SectionTitle } from "../../styles/styles";
-import { OrderItemList, UserMenu, Breadcrumb } from "../../components";
+import { Container } from "../../styles/styles";
+import { OrderItemList, UserMenu, Breadcrumb, Title } from "../../components";
 import { UserDashboardWrapper, UserContent } from "../../styles/user";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { orderData } from "../../data/data";
 
 const OrderListScreenWrapper = styled.div`
@@ -15,11 +15,11 @@ const OrderListScreenWrapper = styled.div`
       border-bottom-color: ${defaultTheme.color_outerspace};
     }
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       min-width: 120px;
     }
 
-    @media (max-width: ${breakpointsDown.xs}) {
+    @media (max-width: ${breakpoints.xs}) {
       min-width: 80px;
     }
   }
@@ -42,9 +42,7 @@ const OrderListScreen = () => {
         <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
-            <SectionTitle className="section-title">
-              <h3>My Orders</h3>
-            </SectionTitle>
+            <Title titleText={"My Orders"} />
             <div className="order-tabs">
               <div className="order-tabs-heads">
                 <button

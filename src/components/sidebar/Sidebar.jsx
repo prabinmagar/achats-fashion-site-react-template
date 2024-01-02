@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { SiteBrandWrapper } from "../../styles/header";
 import { staticImages } from "../../utils/images";
 import { Input, InputGroupWrapper } from "../../styles/form";
@@ -9,14 +9,13 @@ import {
   selectIsSidebarOpen,
   toggleSidebar,
 } from "../../redux/slices/sidebarSlice";
+import { sideMenuData } from "../../data/data";
 
 const SideNavigationWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${defaultTheme.color_white};
   width: 280px;
-  height: 100%;
   z-index: 999;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   padding: 16px;
@@ -31,7 +30,6 @@ const SideNavigationWrapper = styled.div`
     position: absolute;
     right: 16px;
     top: 16px;
-    font-size: 20px;
 
     &:hover {
       color: ${defaultTheme.color_sea_green};
@@ -50,23 +48,13 @@ const SideNavigationWrapper = styled.div`
   }
 
   .sidenav-menu-list {
-    margin: 20px 0;
-    display: grid;
     gap: 20px;
+    margin: 20px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 24px 0;
 
     a {
       column-gap: 16px;
-      color: ${defaultTheme.color_gray};
-      .menu-item-icon {
-        font-size: 18px;
-      }
-      .menu-item-text {
-        font-weight: 500;
-        font-size: 15px;
-      }
-
       &:hover {
         color: ${defaultTheme.color_sea_green};
       }
@@ -77,7 +65,7 @@ const SideNavigationWrapper = styled.div`
     }
   }
 
-  @media (max-width: ${breakpointsDown.xs}) {
+  @media (max-width: ${breakpoints.xs}) {
     width: 100%;
   }
 `;
@@ -88,9 +76,11 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <SideNavigationWrapper className={`${isSidebarOpen ? "show" : ""}`}>
+    <SideNavigationWrapper
+      className={`bg-white h-full ${isSidebarOpen ? "show" : ""}`}
+    >
       <button
-        className="sidebar-close-btn"
+        className="sidebar-close-btn text-3xl"
         onClick={() => dispatch(toggleSidebar())}
       >
         <i className="bi bi-x-lg"></i>
@@ -119,72 +109,22 @@ const Sidebar = () => {
           />
         </InputGroupWrapper>
       </form>
-      <ul className="sidenav-menu-list">
-        <li>
-          <Link
-            to="/"
-            className={`flex items-center ${
-              location.pathname === "/" ? "active" : ""
-            }`}
-          >
-            <span className="menu-item-icon">
-              <i className="bi bi-house"></i>
-            </span>
-            <span className="menu-item-text">Home</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/product"
-            className={`flex items-center ${
-              location.pathname === "/product" ? "active" : ""
-            }`}
-          >
-            <span className="menu-item-icon">
-              <i className="bi bi-grid-fill"></i>
-            </span>
-            <span className="menu-item-text">Products</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/wishlist"
-            className={`flex items-center ${
-              location.pathname === "/wishlist" ? "active" : ""
-            }`}
-          >
-            <span className="menu-item-icon">
-              <i className="bi bi-bag-heart"></i>
-            </span>
-            <span className="menu-item-text">Wishlist</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/account"
-            className={`flex items-center ${
-              location.pathname === "/account" ? "active" : ""
-            }`}
-          >
-            <span className="menu-item-icon">
-              <i className="bi bi-person-fill"></i>
-            </span>
-            <span className="menu-item-text">My Account</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/cart"
-            className={`flex items-center ${
-              location.pathname === "/cart" ? "active" : ""
-            }`}
-          >
-            <span className="menu-item-icon">
-              <i className="bi bi-bag-check-fill"></i>
-            </span>
-            <span className="menu-item-text">Cart</span>
-          </Link>
-        </li>
+      <ul className="sidenav-menu-list grid">
+        {sideMenuData?.map((menu) => (
+          <li key={menu.id}>
+            <Link
+              to={menu.menuLink}
+              className={`flex items-center text-gray ${
+                location.pathname === menu.menuLink ? "active" : ""
+              }`}
+            >
+              <span className="text-xxl">
+                <i className={`bi bi-${menu.iconName}`}></i>
+              </span>
+              <span className="text-lg font-medium">{menu.menuText}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </SideNavigationWrapper>
   );

@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Link, useLocation } from "react-router-dom";
-import { SectionTitle } from "../../styles/styles";
+import Title from "../common/Title";
 
 const NavMenuWrapper = styled.nav`
   margin-top: 32px;
   .nav-menu-list {
-    display: grid;
     row-gap: 8px;
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -19,7 +18,7 @@ const NavMenuWrapper = styled.nav`
   .nav-menu-item {
     border-radius: 4px;
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex: 1 1 0;
     }
   }
@@ -43,19 +42,19 @@ const NavMenuWrapper = styled.nav`
       border-left: 2px solid ${defaultTheme.color_gray};
       background-color: ${defaultTheme.color_whitesmoke};
 
-      @media (max-width: ${breakpointsDown.md}) {
+      @media (max-width: ${breakpoints.md}) {
         border-bottom: 2px solid ${defaultTheme.color_gray};
         border-left: 0;
         background-color: transparent;
       }
     }
 
-    @media (max-width: ${breakpointsDown.md}) {
+    @media (max-width: ${breakpoints.md}) {
       padding-left: 16px;
       padding-right: 16px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       padding-left: 8px;
       padding-right: 8px;
       column-gap: 8px;
@@ -68,13 +67,11 @@ const UserMenu = () => {
 
   return (
     <div>
-      <SectionTitle>
-        <h3>Hello Janvi</h3>
-      </SectionTitle>
+      <Title titleText={"Hello Janvi"} />
       <p className="text-base font-light italic">Welcome to your account.</p>
 
       <NavMenuWrapper>
-        <ul className="nav-menu-list">
+        <ul className="nav-menu-list grid">
           <li className="nav-menu-item">
             <Link
               to="/order"

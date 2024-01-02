@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import preview_video from "../../assets/videos/preview_video.mp4";
 import { staticImages } from "../../utils/images";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { useRef, useState } from "react";
 
 const DescriptionMediaWrapper = styled.div`
@@ -15,11 +15,11 @@ const DescriptionMediaWrapper = styled.div`
   margin-top: auto;
   margin-bottom: 7%;
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     height: 260px;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     height: 200px;
   }
 
@@ -34,8 +34,6 @@ const DescriptionMediaWrapper = styled.div`
   }
 
   video {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 
@@ -87,7 +85,7 @@ const ProductDescriptionMedia = () => {
 
   return (
     <DescriptionMediaWrapper>
-      <video width="640" height="360" loop muted ref={mediaVideoRef}>
+      <video className="w-full h-full" loop muted ref={mediaVideoRef}>
         <source src={preview_video} type="video/mp4"></source>
         Your browser does not support the video tag.
       </video>

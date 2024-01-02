@@ -4,26 +4,26 @@ import {
   ProductFilter,
   ProductList,
   Breadcrumb,
+  Title,
 } from "../../components";
 import { products } from "../../data/data";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { breakpoints, defaultTheme } from "../../styles/themes/default";
 import { Link } from "react-router-dom";
 import {
   Container,
   ContentStylings,
   Section,
-  SectionTitle,
 } from "../../styles/styles";
 
 const ProductsContent = styled.div`
   grid-template-columns: 320px auto;
   margin: 20px 0;
 
-  @media (max-width: ${breakpointsDown.xl}) {
+  @media (max-width: ${breakpoints.xl}) {
     grid-template-columns: 260px auto;
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     grid-template-columns: 100%;
     row-gap: 24px;
   }
@@ -35,7 +35,7 @@ const ProductsContentLeft = styled.div`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 50px;
   overflow: hidden;
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     display: grid;
   }
 `;
@@ -46,11 +46,11 @@ const ProductsContentRight = styled.div`
   .products-right-top {
     margin-bottom: 40px;
 
-    @media (max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpoints.lg}) {
       margin-bottom: 24px;
     }
 
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       flex-direction: column;
       row-gap: 16px;
       align-items: flex-start;
@@ -66,12 +66,12 @@ const ProductsContentRight = styled.div`
     }
   }
 
-  @media (max-width: ${breakpointsDown.lg}) {
+  @media (max-width: ${breakpoints.lg}) {
     padding-left: 12px;
     padding-right: 12px;
   }
 
-  @media (max-width: ${breakpointsDown.sm}) {
+  @media (max-width: ${breakpoints.sm}) {
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -89,7 +89,7 @@ const ProductsContentRight = styled.div`
 const DescriptionContent = styled.div`
   .content-stylings {
     margin-left: 32px;
-    @media (max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpoints.sm}) {
       margin-left: 0;
     }
   }
@@ -124,16 +124,14 @@ const ProductListScreen = () => {
                 </li>
               </ul>
             </div>
-            <ProductList products={products.slice(0, 9)} />
+            <ProductList products={products.slice(0, 12)} />
           </ProductsContentRight>
         </ProductsContent>
       </Container>
       <Section>
         <Container>
           <DescriptionContent>
-            <SectionTitle>
-              <h3>Clothing for Everyone Online</h3>
-            </SectionTitle>
+            <Title titleText={"Clothing for Everyone Online"} />
             <ContentStylings className="text-base">
               <h4>Reexplore Clothing Collection Online at Achats.</h4>
               <p>

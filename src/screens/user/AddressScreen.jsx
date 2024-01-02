@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Container, SectionTitle } from "../../styles/styles";
+import { Container } from "../../styles/styles";
 import { UserContent, UserDashboardWrapper } from "../../styles/user";
-import { UserMenu, Breadcrumb } from "../../components";
+import { UserMenu, Breadcrumb, Title } from "../../components";
 import { FormElement, Input, Textarea } from "../../styles/form";
 import { BaseButtonGreen, BaseButtonWhitesmoke } from "../../styles/button";
 import { defaultTheme } from "../../styles/themes/default";
@@ -31,9 +31,8 @@ const AddressScreen = () => {
         <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
-            <SectionTitle className="section-title">
-              <h3>Add Address</h3>
-            </SectionTitle>
+            <Title titleText={"My Account"} />
+            <h4 className="title-sm">Add Address</h4>
             <form>
               <div className="form-wrapper">
                 <FormElement>
@@ -134,11 +133,7 @@ const AddressScreen = () => {
                   >
                     State*
                   </label>
-                  <select
-                    className="form-elem-control"
-                    name=""
-                    id=""
-                  >
+                  <select className="form-elem-control" name="" id="">
                     <option value="">State 1</option>
                     <option value="">State 2</option>
                     <option value="">State 3</option>
@@ -204,9 +199,7 @@ const AddressScreen = () => {
                 <span>Set as default billing address</span>
               </FormElement>
               <div className="form-btns flex">
-                <BaseButtonGreen type="submit">
-                  Save
-                </BaseButtonGreen>
+                <BaseButtonGreen type="submit">Save</BaseButtonGreen>
                 <BaseButtonWhitesmoke type="button">
                   Cancel
                 </BaseButtonWhitesmoke>

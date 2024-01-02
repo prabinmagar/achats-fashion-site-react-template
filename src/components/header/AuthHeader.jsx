@@ -6,14 +6,12 @@ import {
   BaseLinkOutlineDark,
 } from "../../styles/button";
 import styled from "styled-components";
-import { breakpointsDown } from "../../styles/themes/default";
+import { breakpoints } from "../../styles/themes/default";
 
 const ButtonGroupWrapper = styled.div`
-  display: flex;
-  align-items: center;
   gap: 8px;
 
-  @media(max-width: ${breakpointsDown.sm}){
+  @media(max-width: ${breakpoints.sm}){
     button, a{
       min-width: 100px;
     }
@@ -36,7 +34,7 @@ const AuthHeader = () => {
             <span className="site-brand-text">achats.</span>
           </SiteBrandWrapper>
           <div className="flex items-center">
-            <ButtonGroupWrapper>
+            <ButtonGroupWrapper className="flex items-center">
               <BaseLinkGreen to="/sign_in">Login</BaseLinkGreen>
               <BaseLinkOutlineDark to="/sign_up">Sign up</BaseLinkOutlineDark>
             </ButtonGroupWrapper>
