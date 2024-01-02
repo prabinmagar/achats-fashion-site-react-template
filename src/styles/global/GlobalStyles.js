@@ -100,11 +100,6 @@ export const GlobalStyles = createGlobalStyle`
         white-space: nowrap;
     }
 
-    .resize-animation-stopper * {
-        animation: none !important;
-        transition: none !important;
-    }
-
     // heights and width
     .h-full {
         height: 100%;
@@ -154,14 +149,8 @@ export const GlobalStyles = createGlobalStyle`
     .text-red {
         color: ${defaultTheme.color_red};
     }
-    .text-platinum {
-        color: ${defaultTheme.color_platinum};
-    }
     .text-yellow {
         color: ${defaultTheme.color_yellow};
-    }
-    .text-jet {
-        color: ${defaultTheme.color_jet};
     }
     .text-outerspace {
         color: ${defaultTheme.color_outerspace};
@@ -206,21 +195,6 @@ export const GlobalStyles = createGlobalStyle`
     .bg-sea-green {
         background-color: ${defaultTheme.color_sea_green};
     }
-    .bg-red {
-        background-color: ${defaultTheme.color_red};
-    }
-    .bg-platinum {
-        background-color: ${defaultTheme.color_platinum};
-    }
-    .bg-yellow {
-        background-color: ${defaultTheme.color_yellow};
-    }
-    .bg-jet {
-        background-color: ${defaultTheme.color_jet};
-    }
-    .bg-purple {
-        background-color: ${defaultTheme.color_purple};
-    }
     .bg-transparent {
         background-color: transparent;
     }
@@ -231,12 +205,6 @@ export const GlobalStyles = createGlobalStyle`
     // negative margin
     .-mt-4 {
         margin-top: -16px;
-        display: block;
-    }
-
-    // image
-    .img-fluid {
-        width: 100%;
         display: block;
     }
 
@@ -267,12 +235,6 @@ export const GlobalStyles = createGlobalStyle`
     .page-py-spacing {
         padding-top: 48px !important;
         padding-bottom: 48px !important;
-    }
-
-    .sm-spacing {
-        @media screen and (max-width: 575.98px) {
-            padding: 16px !important;
-        }
     }
 
     // typography

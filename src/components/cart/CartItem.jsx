@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import { Link } from "react-router-dom";
 
 const CartTableRowWrapper = styled.tr`
   .cart-tbl {
@@ -110,9 +111,9 @@ const CartItem = ({ cartItem }) => {
       </td>
       <td>
         <div className="cart-tbl-actions flex justify-center">
-          <a href="#" className="tbl-del-action text-red">
+          <Link to="/" className="tbl-del-action text-red">
             <i className="bi bi-trash3"></i>
-          </a>
+          </Link>
         </div>
       </td>
     </CartTableRowWrapper>

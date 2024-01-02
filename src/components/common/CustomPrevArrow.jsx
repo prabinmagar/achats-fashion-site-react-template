@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { BsChevronLeft } from "react-icons/bs";
-import { SliderPrevArrow } from "../../styles/slider";
+import { CustomPrevArrowWrapper } from "../../styles/slider";
 
 const CustomPrevArrow = ({ onClick }) => (
-  <SliderPrevArrow className="custom-prev-arrow" onClick={onClick}>
+  <CustomPrevArrowWrapper className="custom-prev-arrow" onClick={onClick}>
     <BsChevronLeft />
-  </SliderPrevArrow>
+  </CustomPrevArrowWrapper>
 );
 
 CustomPrevArrow.propTypes = {

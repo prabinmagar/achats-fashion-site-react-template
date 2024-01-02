@@ -1,17 +1,121 @@
 import { Link, useLocation } from "react-router-dom";
 import { staticImages } from "../../utils/images";
-import {
-  HeaderMainWrapper,
-  IconLinksWrapper,
-  NavigationAndSearchWrapper,
-  NavigationMenuWrapper,
-  SiteBrandWrapper,
-} from "../../styles/header";
+import { HeaderMainWrapper, SiteBrandWrapper } from "../../styles/header";
 import { Container } from "../../styles/styles";
 import { Input, InputGroupWrapper } from "../../styles/form";
 import { navMenuData } from "../../data/data";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../../redux/slices/sidebarSlice";
+import styled from "styled-components";
+import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+
+const NavigationAndSearchWrapper = styled.div`
+  column-gap: 20px;
+
+  .search-form {
+    @media (max-width: ${breakpointsDown.lg}) {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    @media (max-width: ${breakpointsDown.sm}) {
+      display: none;
+    }
+  }
+
+  .input-group {
+    min-width: 320px;
+
+    .input-control {
+      @media (max-width: ${breakpointsDown.sm}) {
+        display: none;
+      }
+    }
+
+    @media (max-width: ${breakpointsDown.xl}) {
+      min-width: 160px;
+    }
+
+    @media (max-width: ${breakpointsDown.sm}) {
+      min-width: auto;
+      grid-template-columns: 100%;
+    }
+  }
+
+  @media (max-width: ${breakpointsDown.lg}) {
+    width: 100%;
+    justify-content: flex-end;
+  }
+`;
+
+const NavigationMenuWrapper = styled.nav`
+  .nav-menu-list {
+    margin-left: 20px;
+
+    @media (max-width: ${breakpointsDown.lg}) {
+      flex-direction: column;
+    }
+  }
+  .nav-menu-item {
+    margin-right: 20px;
+    margin-left: 20px;
+
+    @media (max-width: ${breakpointsDown.xl}) {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+  }
+  .nav-menu-link {
+    &.active {
+      color: ${defaultTheme.color_outerspace};
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: ${defaultTheme.color_outerspace};
+    }
+  }
+
+  @media (max-width: ${breakpointsDown.lg}) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 260px;
+    background-color: ${defaultTheme.color_white};
+    height: 100%;
+    z-index: 999;
+    display: none;
+  }
+`;
+
+const IconLinksWrapper = styled.div`
+  column-gap: 18px;
+
+  .icon-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+
+    &.active {
+      background-color: ${defaultTheme.color_sea_green};
+      img {
+        filter: brightness(100);
+      }
+    }
+
+    &:hover {
+      background-color: ${defaultTheme.color_whitesmoke};
+    }
+  }
+
+  @media (max-width: ${breakpointsDown.xl}) {
+    column-gap: 8px;
+  }
+
+  @media (max-width: ${breakpointsDown.sm}) {
+    column-gap: 6px;
+  }
+`;
 
 const Header = () => {
   const location = useLocation();

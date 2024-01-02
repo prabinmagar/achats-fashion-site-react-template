@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container, SectionTitle } from "../../styles/styles";
-import { UserContent, UserDashboard } from "../../styles/user";
+import { UserContent, UserDashboardWrapper } from "../../styles/user";
 import { UserMenu, Breadcrumb } from "../../components";
 import { orderData } from "../../data/data";
 import { currencyFormat } from "../../utils/helper";
@@ -264,7 +264,7 @@ const OrderDetailScreen = () => {
     <OrderDetailScreenWrapper className="page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
             <SectionTitle className="section-title">
@@ -367,7 +367,7 @@ const OrderDetailScreen = () => {
               </OrderDetailListWrapper>
             </div>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
       </Container>
     </OrderDetailScreenWrapper>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "../../styles/styles";
-import { UserContent, UserDashboard } from "../../styles/user";
+import { UserContent, UserDashboardWrapper } from "../../styles/user";
 import { Catalog, UserMenu, Breadcrumb } from "../../components";
 import { staticImages } from "../../utils/images";
 import { BaseLinkGreen } from "../../styles/button";
@@ -38,7 +38,7 @@ const WishListEmptyScreen = () => {
     <WishListEmptyScreenWrapper className="content-main page-empty-wishlist page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
             <div className="wishlist-empty-content text-center">
@@ -57,7 +57,7 @@ const WishListEmptyScreen = () => {
               </BaseLinkGreen>
             </div>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
         <Catalog catalogTitle={"Recently Viewed"} products={recentViewedData} />
       </Container>
     </WishListEmptyScreenWrapper>

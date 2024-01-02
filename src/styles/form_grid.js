@@ -5,6 +5,14 @@ export const FormGridWrapper = styled.div`
   max-width: 1100px;
   margin: 60px auto;
 
+  @media(max-width: ${breakpointsDown.lg}){
+    margin: 40px auto;
+  }
+
+  @media(max-width: ${breakpointsDown.sm}){
+    margin: 30px auto;
+  }
+
   .form-grid-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -25,11 +33,23 @@ export const FormGridWrapper = styled.div`
       position: absolute;
       object-position: top;
     }
+
+    @media (max-width: ${breakpointsDown.md}) {
+      display: none;
+    }
   }
 
   .form-grid-right {
     padding: 48px;
     background-color: ${defaultTheme.color_white};
+
+    @media (max-width: ${breakpointsDown.lg}) {
+      padding: 24px;
+    }
+
+    @media (max-width: ${breakpointsDown.sm}) {
+      padding: 16px;
+    }
   }
 
   // form submit button
@@ -44,5 +64,21 @@ export const FormGridWrapper = styled.div`
     a {
       text-decoration: underline;
     }
+  }
+`;
+
+export const FormTitle = styled.div`
+  margin-bottom: 24px;
+  h3 {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
+`;
+
+export const CheckboxGroup = styled.ul`
+  margin-top: 20px;
+  li {
+    column-gap: 8px;
+    margin: 4px 0;
   }
 `;

@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { BaseLinkGreen } from "../../styles/button";
 import { currencyFormat } from "../../utils/helper";
 import PropTypes from "prop-types";
-import { breakpointsDown } from "../../styles/themes/default";
+import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 
 const OrderItemWrapper = styled.div`
   margin: 30px 0;
-  border-bottom: 1px solid #edeef2;
+  border-bottom: 1px solid ${defaultTheme.color_anti_flash_white};
 
   .order-item-title {
     margin-bottom: 12px;

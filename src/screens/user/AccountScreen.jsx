@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Container, SectionTitle } from "../../styles/styles";
-import { UserContent, UserDashboard } from "../../styles/user";
+import { UserContent, UserDashboardWrapper } from "../../styles/user";
 import { UserMenu, Breadcrumb } from "../../components";
 import { FormElement, Input } from "../../styles/form";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { BaseLinkGreen } from "../../styles/button";
+import { Link } from "react-router-dom";
 
 const AccountScreenWrapper = styled.main`
   .address-list {
@@ -45,7 +46,7 @@ const AccountScreenWrapper = styled.main`
     .btn-separator {
       width: 1px;
       border-radius: 50px;
-      background: #d9d9d9;
+      background: ${defaultTheme.color_platinum};
       margin: 0 10px;
     }
   }
@@ -61,7 +62,7 @@ const AccountScreen = () => {
     <AccountScreenWrapper className="page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
             <SectionTitle className="section-title">
@@ -169,19 +170,19 @@ const AccountScreen = () => {
                     </li>
                   </ul>
                   <div className="address-btns flex">
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="text-base text-outerspace font-semibold"
                     >
                       Remove
-                    </a>
+                    </Link>
                     <div className="btn-separator"></div>
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="text-base text-outerspace font-semibold"
                     >
                       Edit
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="address-item">
@@ -200,25 +201,25 @@ const AccountScreen = () => {
                     </li>
                   </ul>
                   <div className="address-btns flex">
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="text-base text-outerspace font-semibold"
                     >
                       Remove
-                    </a>
+                    </Link>
                     <div className="btn-separator"></div>
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="text-base text-outerspace font-semibold"
                     >
                       Edit
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
       </Container>
     </AccountScreenWrapper>
   );

@@ -45,7 +45,7 @@ const BillingDetailsWrapper = styled.div`
       select {
         height: 40px;
         border-radius: 4px;
-        background: #f6f6f6;
+        background: ${defaultTheme.color_whitesmoke};
         padding-left: 12px;
         padding-right: 12px;
         width: 100%;
@@ -169,7 +169,7 @@ const OrderSummaryWrapper = styled.div`
 
     .list-separator {
       height: 1px;
-      background-color: #edeef2;
+      background-color: ${defaultTheme.color_anti_flash_white};
       margin: 12px 0;
     }
   }

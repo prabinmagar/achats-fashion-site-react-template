@@ -8,25 +8,6 @@ import styled from "styled-components";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { feedbackData } from "../../data/data";
 
-const FeedbackSliderWrapper = styled.div`
-  .custom-next-arrow {
-    right: 0;
-    background-color: ${defaultTheme.color_jet};
-    border: 3px solid ${defaultTheme.color_whitesmoke};
-    svg {
-      color: ${defaultTheme.color_white};
-    }
-  }
-  .custom-prev-arrow {
-    left: 0;
-    background-color: ${defaultTheme.color_jet};
-    border: 3px solid ${defaultTheme.color_whitesmoke};
-    svg {
-      color: ${defaultTheme.color_white};
-    }
-  }
-`;
-
 const FeedbackItemWrapper = styled.div`
   padding-left: 16px;
   padding-right: 16px;
@@ -37,8 +18,8 @@ const FeedbackItemWrapper = styled.div`
 
   .feedback-item-wrap {
     border-radius: 10px;
-    border: 1px solid var(--main-grey-2, #d9d9d9);
-    background: #fff;
+    border: 1px solid ${defaultTheme.color_platinum};
+    background: ${defaultTheme.color_white};
     padding: 20px;
     height: 320px;
     transition: ${defaultTheme.default_transition};
@@ -84,7 +65,7 @@ const FeedbackItemWrapper = styled.div`
   }
 
   .feedback-body {
-    color: #807d7e;
+    color: ${defaultTheme.color_gray};
   }
 `;
 
@@ -117,55 +98,51 @@ const Feedback = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle >
+        <SectionTitle>
           <h3>Feedback</h3>
         </SectionTitle>
-        <FeedbackSliderWrapper>
-          <Slider
-            nextArrow={<CustomNextArrow />}
-            prevArrow={<CustomPrevArrow />}
-            {...settings}
-          >
-            {feedbackData?.map((feedback) => {
-              return (
-                <FeedbackItemWrapper key={feedback.id}>
-                  <div className="feedback-item-wrap">
-                    <div className="feedback-top flex items-center">
-                      <div className="feedback-icon">
-                        <img
-                          src={feedback.imgSource}
-                          className="object-fit-cover"
-                          alt=""
-                        />
-                      </div>
-                      <div className="feedback-intro">
-                        <p className="font-semibold text-base">
-                          {feedback.name}
-                        </p>
-                        <span className="text-sm">{feedback.designation}</span>
-                      </div>
+        <Slider
+          nextArrow={<CustomNextArrow />}
+          prevArrow={<CustomPrevArrow />}
+          {...settings}
+        >
+          {feedbackData?.map((feedback) => {
+            return (
+              <FeedbackItemWrapper key={feedback.id}>
+                <div className="feedback-item-wrap">
+                  <div className="feedback-top flex items-center">
+                    <div className="feedback-icon">
+                      <img
+                        src={feedback.imgSource}
+                        className="object-fit-cover"
+                        alt=""
+                      />
                     </div>
-                    <ul className="rating flex items-center">
-                      {[...Array(feedback.rating).keys()].map((index) => (
-                        <li key={index}>
-                          <i className="bi bi-star-fill"></i>
-                        </li>
-                      ))}
-                      {[...Array(5 - feedback.rating).keys()].map((index) => (
-                        <li key={index + feedback.rating}>
-                          <i className="bi bi-star"></i>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="feedback-body">
-                      <p className="text-base">{feedback.feedbackText}</p>
+                    <div className="feedback-intro">
+                      <p className="font-semibold text-base">{feedback.name}</p>
+                      <span className="text-sm">{feedback.designation}</span>
                     </div>
                   </div>
-                </FeedbackItemWrapper>
-              );
-            })}
-          </Slider>
-        </FeedbackSliderWrapper>
+                  <ul className="rating flex items-center">
+                    {[...Array(feedback.rating).keys()].map((index) => (
+                      <li key={index}>
+                        <i className="bi bi-star-fill"></i>
+                      </li>
+                    ))}
+                    {[...Array(5 - feedback.rating).keys()].map((index) => (
+                      <li key={index + feedback.rating}>
+                        <i className="bi bi-star"></i>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="feedback-body">
+                    <p className="text-base">{feedback.feedbackText}</p>
+                  </div>
+                </div>
+              </FeedbackItemWrapper>
+            );
+          })}
+        </Slider>
       </Container>
     </Section>
   );

@@ -3,6 +3,7 @@ import { CartDiscount, CartSummary, CartTable, Breadcrumb } from "../../componen
 import { cartItems } from "../../data/data";
 import { Container } from "../../styles/styles";
 import { breakpointsDown } from "../../styles/themes/default";
+import { Link } from "react-router-dom";
 
 const CartPageWrapper = styled.main`
   padding: 48px 0;
@@ -62,9 +63,9 @@ const CartScreen = () => {
           </p>
           <p className="text-gray text-base">
             Already registered?{" "}
-            <a href="#" className="text-sea-green font-medium">
+            <Link to="/sign_in" className="text-sea-green font-medium">
               Please login here
-            </a>
+            </Link>
           </p>
         </div>
 

@@ -2,25 +2,35 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Container, Section, SectionTitle } from "../../styles/styles";
-import styled, { css } from "styled-components";
-import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
+import styled from "styled-components";
+import { breakpointsDown } from "../../styles/themes/default";
 import { newArrivalData } from "../../data/data";
-import { ProductCardBoxWrapper } from "../../styles/card";
 import CustomNextArrow from "../common/CustomNextArrow";
 import CustomPrevArrow from "../common/CustomPrevArrow";
+import { commonCardStyles } from "../../styles/card";
 
-const sliderArrowCommons = css`
-  top: 43%;
-  background-color: ${defaultTheme.color_sea_green};
-  border: 3px solid ${defaultTheme.color_white};
-  svg {
-    color: ${defaultTheme.color_white};
+const ProductCardBoxWrapper = styled.div`
+  ${commonCardStyles}
+  .product-img {
+    height: 262px;
+    width: 262px;
+  }
+
+  .product-info {
+    .info-name {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: ${breakpointsDown.sm}) {
+    padding-left: 6px;
+    padding-right: 6px;
   }
 `;
 
 const ArrivalSliderWrapper = styled.div`
   .custom-prev-arrow {
-    ${sliderArrowCommons}
+    top: 43%;
     left: -18px;
     @media (max-width: ${breakpointsDown.xxl}) {
       left: 24px;
@@ -31,7 +41,7 @@ const ArrivalSliderWrapper = styled.div`
   }
 
   .custom-next-arrow {
-    ${sliderArrowCommons}
+    top: 43%;
     right: -18px;
     @media (max-width: ${breakpointsDown.xxl}) {
       right: 24px;

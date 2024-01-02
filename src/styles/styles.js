@@ -29,7 +29,7 @@ export const SectionTitle = styled.div`
   h3,
   h4 {
     font-weight: 600;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
   }
 
   @media (max-width: ${breakpointsDown.lg}) {
@@ -76,7 +76,7 @@ export const SectionTitle = styled.div`
 `;
 
 export const ContentStylings = styled.div`
-  color: #807d7e;
+  color: ${defaultTheme.color_gray};
   h1,
   h2,
   h3,

@@ -1,13 +1,12 @@
 import { AuthOptions, PasswordInput } from "../../components";
-import { FormGridWrapper } from "../../styles/form_grid";
+import {
+  FormGridWrapper,
+  FormTitle,
+  CheckboxGroup,
+} from "../../styles/form_grid";
 import { Container } from "../../styles/styles";
 import { staticImages } from "../../utils/images";
-import {
-  CheckboxGroup,
-  FormElement,
-  FormTitle,
-  Input,
-} from "../../styles/form";
+import { FormElement, Input } from "../../styles/form";
 import { BaseButtonBlack } from "../../styles/button";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -65,13 +64,13 @@ const SignUpScreen = () => {
                     <input type="checkbox" />
                     <span className="text-sm">
                       Agree to our{" "}
-                      <a href="#" className="text-underline">
+                      <Link to="/" className="text-underline">
                         Terms of use
-                      </a>{" "}
+                      </Link>{" "}
                       and{" "}
-                      <a href="#" className="text-underline">
+                      <Link to="/" className="text-underline">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </span>
                   </li>
                   <li className="flex items-center">

@@ -1,18 +1,22 @@
 import { AuthOptions, PasswordInput } from "../../components";
-import { FormGridWrapper } from "../../styles/form_grid";
+import { FormGridWrapper, FormTitle } from "../../styles/form_grid";
 import { staticImages } from "../../utils/images";
 import { Link } from "react-router-dom";
 import { Container } from "../../styles/styles";
-import { FormElement, FormTitle, Input } from "../../styles/form";
+import { FormElement, Input } from "../../styles/form";
 import { BaseButtonBlack } from "../../styles/button";
 import styled from "styled-components";
-import { defaultTheme } from "../../styles/themes/default";
+import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 
 const SignInScreenWrapper = styled.section`
   // form separator
   .form-separator {
     margin: 32px 0;
     column-gap: 18px;
+
+    @media(max-width: ${breakpointsDown.lg}){
+      margin: 24px 0;
+    }
 
     .separator-text {
       border-radius: 50%;

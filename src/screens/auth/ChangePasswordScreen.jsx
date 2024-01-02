@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { PasswordInput } from "../../components";
 import { BaseButtonBlack } from "../../styles/button";
-import { FormTitle } from "../../styles/form";
-import { FormGridWrapper } from "../../styles/form_grid";
+import { FormGridWrapper, FormTitle } from "../../styles/form_grid";
 import { Container } from "../../styles/styles";
 import { staticImages } from "../../utils/images";
 

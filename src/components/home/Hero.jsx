@@ -17,6 +17,9 @@ const HeroSliderWrapper = styled.div`
   .custom-prev-arrow {
     left: 30px !important;
     background-color: ${defaultTheme.color_white};
+    svg {
+      color: ${defaultTheme.color_outerspace};
+    }
     @media (max-width: ${breakpointsDown.md}) {
       left: 16px !important;
     }
@@ -25,6 +28,9 @@ const HeroSliderWrapper = styled.div`
   .custom-next-arrow {
     right: 30px !important;
     background-color: ${defaultTheme.color_white};
+    svg {
+      color: ${defaultTheme.color_outerspace};
+    }
     @media (max-width: ${breakpointsDown.md}) {
       right: 16px !important;
     }
@@ -128,7 +134,7 @@ const HeroSliderContent = styled.div`
     }
   }
 
-  .hero-btn{
+  .hero-btn {
     font-size: 18px;
     height: 46px;
     min-width: 160px;
@@ -154,7 +160,7 @@ const Hero = () => {
           arrows: false,
         },
       },
-    ]
+    ],
   };
 
   return (
@@ -182,9 +188,7 @@ const Hero = () => {
                     <p className="hero-text-bottom font-semibold uppercase">
                       {banner.bottomText}
                     </p>
-                    <BaseLinkWhite
-                      to={banner.buttonLink} className="hero-btn"
-                    >
+                    <BaseLinkWhite to={banner.buttonLink} className="hero-btn">
                       {banner.buttonText}
                     </BaseLinkWhite>
                   </Container>

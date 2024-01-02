@@ -11,6 +11,7 @@ import { Container } from "../../styles/styles";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { BaseLinkGreen } from "../../styles/button";
 import { currencyFormat } from "../../utils/helper";
+import { Link } from "react-router-dom";
 
 const DetailsScreenWrapper = styled.main`
   margin: 40px 0;
@@ -112,7 +113,7 @@ const ProductSizeWrapper = styled.div`
       width: 38px;
       height: 38px;
       border-radius: 8px;
-      border: 1.5px solid #bebcbd;
+      border: 1.5px solid ${defaultTheme.color_silver};
       text-transform: uppercase;
     }
   }
@@ -215,9 +216,9 @@ const ProductDetailsScreen = () => {
                 <p className="text-lg font-semibold text-outerspace">
                   Select Size
                 </p>
-                <a href="#" className="text-lg text-gray font-medium">
+                <Link to="/" className="text-lg text-gray font-medium">
                   Size Guide &nbsp; <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="prod-size-list flex items-center">
                 {product_one.sizes.map((size, index) => (

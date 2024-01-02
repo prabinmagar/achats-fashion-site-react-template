@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { BsChevronRight } from "react-icons/bs";
-import { SliderNextArrow } from "../../styles/slider";
+import { CustomNextArrowWrapper } from "../../styles/slider";
 
 const CustomNextArrow = ({ onClick }) => (
-  <SliderNextArrow className="custom-next-arrow" onClick={onClick}>
+  <CustomNextArrowWrapper className="custom-next-arrow" onClick={onClick}>
     <BsChevronRight />
-  </SliderNextArrow>
+  </CustomNextArrowWrapper>
 );
 
 CustomNextArrow.propTypes = {

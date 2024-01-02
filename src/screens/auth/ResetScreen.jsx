@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BaseButtonBlack } from "../../styles/button";
-import { FormElement, FormTitle, Input } from "../../styles/form";
-import { FormGridWrapper } from "../../styles/form_grid";
+import { FormElement, Input } from "../../styles/form";
+import { FormGridWrapper, FormTitle } from "../../styles/form_grid";
 import { Container } from "../../styles/styles";
 import { staticImages } from "../../utils/images";
 import { Link } from "react-router-dom";

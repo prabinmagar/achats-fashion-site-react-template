@@ -41,9 +41,9 @@ function App() {
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/empty_wishlist" element={<WishListEmpty />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/account/add" element={<Address /> } />
+            <Route path="/account/add" element={<Address />} />
             <Route path="/account" element={<Account />} />
-            <Route  path="/confirm" element={<Confirm /> } />
+            <Route path="/confirm" element={<Confirm />} />
           </Route>
 
           <Route path="/" element={<AuthLayout />}>

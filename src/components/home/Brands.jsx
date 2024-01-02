@@ -19,7 +19,7 @@ const StyledSectionTitle = styled(SectionTitle)`
 
 const BrandsContent = styled.div`
   border-radius: 12px;
-  background: #3c4242;
+  background: ${defaultTheme.color_outerspace};
   padding: 40px 0;
 
   @media (max-width: ${breakpointsDown.lg}) {

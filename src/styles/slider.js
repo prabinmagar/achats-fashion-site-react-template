@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { defaultTheme } from "./themes/default";
 
 const commonArrowStyles = css`
   position: absolute;
@@ -11,15 +12,20 @@ const commonArrowStyles = css`
   width: 32px;
   height: 32px;
   border-radius: 100%;
+  background-color: ${defaultTheme.color_sea_green};
+  border: 3px solid ${defaultTheme.color_whitesmoke};
   svg {
     scale: 1.3;
+    color: ${defaultTheme.color_white};
   }
 `;
 
-export const SliderNextArrow = styled.button`
+export const CustomNextArrowWrapper = styled.button`
   ${commonArrowStyles}
+  right: 0;
 `;
 
-export const SliderPrevArrow = styled.button`
+export const CustomPrevArrowWrapper = styled.button`
   ${commonArrowStyles}
+  left: 0;
 `;

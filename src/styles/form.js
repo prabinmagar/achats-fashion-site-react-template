@@ -5,10 +5,10 @@ export const Input = styled.input`
   font-size: 14px;
   border: none;
   outline: 0;
-  color: #6d6d6d;
+  color: ${defaultTheme.color_dim_gray};
 
   &::placeholder {
-    color: #adadad;
+    color: ${defaultTheme.color_silver};
     font-weight: 400;
 
     @media (max-width: ${breakpointsDown.sm}) {
@@ -21,11 +21,11 @@ export const Textarea = styled.textarea`
   font-size: 14px;
   border: none;
   outline: 0;
-  color: #6d6d6d;
+  color: ${defaultTheme.color_dim_gray};
   padding: 16px !important;
 
   textarea::placeholder {
-    color: #adadad;
+    color: ${defaultTheme.color_silver};
     font-weight: 400;
 
     @media (max-width: ${breakpointsDown.sm}) {
@@ -56,14 +56,6 @@ export const InputGroupWrapper = styled.div`
   input {
     border: none;
     background-color: transparent;
-  }
-`;
-
-export const FormTitle = styled.div`
-  margin-bottom: 24px;
-  h3 {
-    font-size: 32px;
-    margin-bottom: 4px;
   }
 `;
 
@@ -108,13 +100,5 @@ export const FormElement = styled.div`
     &:hover {
       color: ${defaultTheme.color_sea_green};
     }
-  }
-`;
-
-export const CheckboxGroup = styled.ul`
-  margin-top: 20px;
-  li {
-    column-gap: 8px;
-    margin: 4px 0;
   }
 `;

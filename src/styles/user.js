@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpointsDown, defaultTheme } from "./themes/default";
 
-export const UserDashboard = styled.div`
+export const UserDashboardWrapper = styled.div`
   margin-top: 40px;
   display: grid;
   grid-template-columns: 240px auto;
@@ -18,28 +18,28 @@ export const UserDashboard = styled.div`
 `;
 
 export const UserContent = styled.div`
-.section-title{
-  padding-left: 0!important;
-  &::after{
-    display: none;
+  .section-title {
+    padding-left: 0 !important;
+    &::after {
+      display: none;
+    }
   }
-}
-  /* form */
+
+  // both in account & address screen
   form {
     margin-bottom: 24px;
   }
-
   .form-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
     max-width: 895px;
 
-    @media(max-width: ${breakpointsDown.lg}) {
+    @media (max-width: ${breakpointsDown.lg}) {
       column-gap: 12px;
     }
 
-    @media(max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpointsDown.sm}) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -50,6 +50,12 @@ export const UserContent = styled.div`
     color: ${defaultTheme.color_outerspace};
   }
 
+  .form-label {
+    margin-bottom: 6px;
+    color: ${defaultTheme.color_outerspace};
+  }
+
+  // only in address screen
   textarea.form-elem-control {
     outline: 0;
     resize: none;
@@ -59,7 +65,7 @@ export const UserContent = styled.div`
   .form-elem-wide {
     grid-column: 1 / 3;
 
-    @media(max-width: ${breakpointsDown.sm}) {
+    @media (max-width: ${breakpointsDown.sm}) {
       grid-column: 1 / 2;
     }
   }
@@ -70,18 +76,13 @@ export const UserContent = styled.div`
   }
 
   .form-input-wrapper {
-    border-bottom: 1px solid #edeef2;
-  }
-  
-  .form-label {
-    margin-bottom: 6px;
-    color: ${defaultTheme.color_outerspace};
+    border-bottom: 1px solid ${defaultTheme.color_anti_flash_white};
   }
 
   .form-elem-checkbox {
     width: 20px;
     height: 20px;
-    border: 1px solid #bebcbd;
+    border: 1px solid ${defaultTheme.color_silver};
     border-radius: 2px;
     position: relative;
 
@@ -119,4 +120,6 @@ export const UserContent = styled.div`
     gap: 12px;
     margin-top: 32px;
   }
+
+  /* end of address screen */
 `;

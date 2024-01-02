@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Container, Section, SectionTitle } from "../../styles/styles";
 import { pricingData } from "../../data/data";
+import { defaultTheme } from "../../styles/themes/default";
 
 const PricingContent = styled.div`
   .table-wrapper {
@@ -25,7 +26,7 @@ const PricingContent = styled.div`
     tbody {
       td {
         padding: 12px 10px;
-        color: #807d7e;
+        color: ${defaultTheme.color_gray};
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
     }

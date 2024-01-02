@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container, SectionTitle } from "../../styles/styles";
-import { UserContent, UserDashboard } from "../../styles/user";
+import { UserContent, UserDashboardWrapper } from "../../styles/user";
 import { UserMenu, Breadcrumb } from "../../components";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { wishlistData } from "../../data/data";
@@ -155,7 +155,7 @@ const WishListScreen = () => {
     <WishListScreenWrapper className="page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu>
             <div className="section-title horiz-line">
               <h3>Hello Janvi</h3>
@@ -273,7 +273,7 @@ const WishListScreen = () => {
               })}
             </div>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
       </Container>
     </WishListScreenWrapper>
   );

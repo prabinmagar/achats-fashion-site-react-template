@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container, SectionTitle } from "../../styles/styles";
-import { UserContent, UserDashboard } from "../../styles/user";
+import { UserContent, UserDashboardWrapper } from "../../styles/user";
 import { UserMenu, Breadcrumb } from "../../components";
 import { FormElement, Input, Textarea } from "../../styles/form";
 import { BaseButtonGreen, BaseButtonWhitesmoke } from "../../styles/button";
@@ -28,7 +28,7 @@ const AddressScreen = () => {
     <AddressScreenWrapper className="page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
             <SectionTitle className="section-title">
@@ -213,7 +213,7 @@ const AddressScreen = () => {
               </div>
             </form>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
       </Container>
     </AddressScreenWrapper>
   );

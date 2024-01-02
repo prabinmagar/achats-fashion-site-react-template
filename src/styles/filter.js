@@ -96,6 +96,7 @@ export const PriceFilter = styled.div`
     top: -6px;
     background: none;
     pointer-events: none;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
   }
@@ -113,7 +114,6 @@ export const PriceFilter = styled.div`
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    border: 3px solid #1b53c0;
     background-color: ${defaultTheme.color_white};
     pointer-events: auto;
     -moz-appearance: none;

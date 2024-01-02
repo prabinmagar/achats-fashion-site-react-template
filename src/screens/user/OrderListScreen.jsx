@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container, SectionTitle } from "../../styles/styles";
 import { OrderItemList, UserMenu, Breadcrumb } from "../../components";
-import { UserDashboard, UserContent } from "../../styles/user";
+import { UserDashboardWrapper, UserContent } from "../../styles/user";
 import { breakpointsDown, defaultTheme } from "../../styles/themes/default";
 import { orderData } from "../../data/data";
 
@@ -9,7 +9,7 @@ const OrderListScreenWrapper = styled.div`
   .order-tabs-head {
     min-width: 170px;
     padding: 12px;
-    border-bottom: 3px solid #f6f6f6;
+    border-bottom: 3px solid ${defaultTheme.color_whitesmoke};
 
     &.order-tabs-head-active {
       border-bottom-color: ${defaultTheme.color_outerspace};
@@ -39,7 +39,7 @@ const OrderListScreen = () => {
     <OrderListScreenWrapper className="page-py-spacing">
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <UserDashboard>
+        <UserDashboardWrapper>
           <UserMenu />
           <UserContent>
             <SectionTitle className="section-title">
@@ -80,7 +80,7 @@ const OrderListScreen = () => {
               </div>
             </div>
           </UserContent>
-        </UserDashboard>
+        </UserDashboardWrapper>
       </Container>
     </OrderListScreenWrapper>
   );

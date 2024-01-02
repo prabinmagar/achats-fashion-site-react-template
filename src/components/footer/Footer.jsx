@@ -10,6 +10,11 @@ const FooterWrapper = styled.footer`
   padding-top: 60px;
   padding-bottom: 32px;
 
+  @media (max-width: ${breakpointsDown.lg}) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
   .footer-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -36,7 +41,7 @@ const FooterWrapper = styled.footer`
       margin-bottom: 8px;
 
       a {
-        color: #f6f6f6;
+        color: ${defaultTheme.color_whitesmoke};
         &:hover {
           color: ${defaultTheme.color_yellow};
         }
@@ -49,6 +54,10 @@ const FooterWrapper = styled.footer`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
+    @media (max-width: ${breakpointsDown.lg}) {
+      padding: 20px 0;
+    }
 
     @media (max-width: ${breakpointsDown.xs}) {
       grid-template-columns: 100%;
@@ -101,6 +110,10 @@ const FooterWrapper = styled.footer`
   .footer-bottom {
     padding-top: 36px;
     border-top: 1px solid rgba(190, 188, 189, 0.4);
+
+    @media (max-width: ${breakpointsDown.lg}) {
+      padding-top: 20px;
+    }
   }
 `;
 
@@ -161,22 +174,22 @@ const Footer = () => {
               Download the App
             </p>
             <div className="app-links-group flex items-center">
-              <a href="#">
+              <Link to="/">
                 <img src={staticImages.google_play} />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/">
                 <img src={staticImages.app_store} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="footer-bottom text-center">
           <p className="text-base text-white">
             Copyright &copy; 2023{" "}
-            <a href="#" className="text-white">
+            <Link to="/" className="text-white">
               {" "}
               Achats site
-            </a>
+            </Link>
             . All rights reserved.
           </p>
         </div>
